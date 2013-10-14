@@ -8,7 +8,20 @@ function es6i__define(name, module) {
 		};
 		module(function (value, name) {
 			if (arguments.length > 1) {
-				exports[name] = value;
+				if (typeof name === 'object') {
+					if (name === null) {
+						for (name in value) {
+							exports[name] = value[name];
+						}
+					} else {
+						var mappings = name;
+						for (name in mappings) {
+							exports[name] = value[mappings[name]];
+						}
+					}
+				} else {
+					exports[name] = value;
+				}
 			} else {
 				exports = value;
 			}

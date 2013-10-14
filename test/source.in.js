@@ -1,3 +1,12 @@
+module 'quickExamples' {
+	import $ from "jquery";                    // import the default export of a module
+	import { encrypt, decrypt } from "crypto"; // binding a module's exports to variables
+	import { encrypt as enc } from "crypto";   // binding and renaming one of a module's exports
+	export * from "crypto";                    // re-exporting another module's exports
+	export { foo, bar as barrrr } from "crypto";         // re-exporting specified exports from another module
+	export *;
+}
+
 module Math from 'math';
  
 // reify M as an immutable "module instance object"

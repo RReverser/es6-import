@@ -7,7 +7,20 @@ function es6i__define(name, module) {
         };
         module(function (value, name) {
             if (arguments.length > 1) {
-                exports[name] = value;
+                if (typeof name === 'object') {
+                    if (name === null) {
+                        for (name in value) {
+                            exports[name] = value[name];
+                        }
+                    } else {
+                        var mappings = name;
+                        for (name in mappings) {
+                            exports[name] = value[mappings[name]];
+                        }
+                    }
+                } else {
+                    exports[name] = value;
+                }
             } else {
                 exports = value;
             }
@@ -15,6 +28,16 @@ function es6i__define(name, module) {
         return exports;
     };
 }
+es6i__define('quickExamples', function (export) {
+    var $ = es6i__modules['jquery']();
+    var encrypt = es6i__modules['crypto']().encrypt, decrypt = es6i__modules['crypto']().decrypt;
+    var enc = es6i__modules['crypto']().encrypt;
+    export(es6i__modules['crypto'](), null);
+    export(es6i__modules['crypto'](), {
+        'foo': 'foo',
+        'barrrr': 'bar'
+    });
+});
 var Math = es6i__modules['math'];
 alert('2\u03c0 = ' + Math.sum(Math.pi, Math.pi));
 var drawShape = es6i__modules['shape']().draw;

@@ -4,9 +4,9 @@ var esprima = require('esprima'),
 	testPath = __dirname + '/../test/',
 	ast = esprima.parse(fs.readFileSync(testPath + 'source.in.js')),
 	helpers_ast = esprima.parse(fs.readFileSync(__dirname + '/helpers.js')),
-	es6i__import = {
+	es6i__key = {
 		type: 'Identifier',
-		name: 'es6i__import'
+		name: 'es6i__key'
 	},
 	es6i__export = {
 		type: 'Identifier',
@@ -34,6 +34,13 @@ function moduleById(id) {
 		object: es6i__modules,
 		computed: true,
 		property: id
+	};
+}
+
+function id2literal(id) {
+	return {
+		type: 'Literal',
+		value: id.name
 	};
 }
 
@@ -92,32 +99,56 @@ handlers.ExportDeclaration = function () {
 		},
 		isDefault = this.default;
 
-	function addExport(id, value) {
+	function addExport(value, id) {
 		exports.body.push({
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'CallExpression',
 				callee: es6i__export,
-				arguments: [value].concat(isDefault ? [] : [{
-					type: 'Literal',
-					value: id.name
-				}])
+				arguments: [value].concat(isDefault ? [] : [id])
 			}
 		});
 	}
 
-	switch (this.declaration.type) {
-		case 'FunctionDeclaration':
-			this.declaration.type = 'FunctionExpression';
+	if (this.source !== null) {
+		addExport(
+			{
+				type: 'CallExpression',
+				callee: moduleById(this.source),
+				arguments: []
+			},
+			(
+				this.specifiers[0].type === 'ExportBatchSpecifier'
+				? {
+					type: 'Literal',
+					value: null
+				}
+				: {
+					type: 'ObjectExpression',
+					properties: this.specifiers.map(function (specifier) {
+						return {
+							type: 'Property',
+							key: id2literal(specifier.name || specifier.id),
+							value: id2literal(specifier.id)
+						};
+					})
+				}
+			)
+		);
+	} else {
+		switch (this.declaration.type) {
+			case 'FunctionDeclaration':
+				this.declaration.type = 'FunctionExpression';
 
-		case 'FunctionExpression':
-			addExport(this.declaration.id, this.declaration);
-			break;
+			case 'FunctionExpression':
+				addExport(this.declaration, id2literal(this.declaration.id));
+				break;
 
-		case 'VariableDeclaration':
-			this.declaration.declarations.forEach(function (declaration) {
-				addExport(declaration.id, declaration.init);
-			});
+			case 'VariableDeclaration':
+				this.declaration.declarations.forEach(function (declaration) {
+					addExport(declaration.init, id2literal(declaration.id));
+				});
+		}
 	}
 
 	switch (exports.body.length) {

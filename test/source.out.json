@@ -173,26 +173,203 @@
 																		"type": "BlockStatement",
 																		"body": [
 																			{
-																				"type": "ExpressionStatement",
-																				"expression": {
-																					"type": "AssignmentExpression",
-																					"operator": "=",
+																				"type": "IfStatement",
+																				"test": {
+																					"type": "BinaryExpression",
+																					"operator": "===",
 																					"left": {
-																						"type": "MemberExpression",
-																						"computed": true,
-																						"object": {
-																							"type": "Identifier",
-																							"name": "exports"
-																						},
-																						"property": {
+																						"type": "UnaryExpression",
+																						"operator": "typeof",
+																						"argument": {
 																							"type": "Identifier",
 																							"name": "name"
 																						}
 																					},
 																					"right": {
-																						"type": "Identifier",
-																						"name": "value"
+																						"type": "Literal",
+																						"value": "object",
+																						"raw": "'object'"
 																					}
+																				},
+																				"consequent": {
+																					"type": "BlockStatement",
+																					"body": [
+																						{
+																							"type": "IfStatement",
+																							"test": {
+																								"type": "BinaryExpression",
+																								"operator": "===",
+																								"left": {
+																									"type": "Identifier",
+																									"name": "name"
+																								},
+																								"right": {
+																									"type": "Literal",
+																									"value": null,
+																									"raw": "null"
+																								}
+																							},
+																							"consequent": {
+																								"type": "BlockStatement",
+																								"body": [
+																									{
+																										"type": "ForInStatement",
+																										"left": {
+																											"type": "Identifier",
+																											"name": "name"
+																										},
+																										"right": {
+																											"type": "Identifier",
+																											"name": "value"
+																										},
+																										"body": {
+																											"type": "BlockStatement",
+																											"body": [
+																												{
+																													"type": "ExpressionStatement",
+																													"expression": {
+																														"type": "AssignmentExpression",
+																														"operator": "=",
+																														"left": {
+																															"type": "MemberExpression",
+																															"computed": true,
+																															"object": {
+																																"type": "Identifier",
+																																"name": "exports"
+																															},
+																															"property": {
+																																"type": "Identifier",
+																																"name": "name"
+																															}
+																														},
+																														"right": {
+																															"type": "MemberExpression",
+																															"computed": true,
+																															"object": {
+																																"type": "Identifier",
+																																"name": "value"
+																															},
+																															"property": {
+																																"type": "Identifier",
+																																"name": "name"
+																															}
+																														}
+																													}
+																												}
+																											]
+																										},
+																										"each": false
+																									}
+																								]
+																							},
+																							"alternate": {
+																								"type": "BlockStatement",
+																								"body": [
+																									{
+																										"type": "VariableDeclaration",
+																										"declarations": [
+																											{
+																												"type": "VariableDeclarator",
+																												"id": {
+																													"type": "Identifier",
+																													"name": "mappings"
+																												},
+																												"init": {
+																													"type": "Identifier",
+																													"name": "name"
+																												}
+																											}
+																										],
+																										"kind": "var"
+																									},
+																									{
+																										"type": "ForInStatement",
+																										"left": {
+																											"type": "Identifier",
+																											"name": "name"
+																										},
+																										"right": {
+																											"type": "Identifier",
+																											"name": "mappings"
+																										},
+																										"body": {
+																											"type": "BlockStatement",
+																											"body": [
+																												{
+																													"type": "ExpressionStatement",
+																													"expression": {
+																														"type": "AssignmentExpression",
+																														"operator": "=",
+																														"left": {
+																															"type": "MemberExpression",
+																															"computed": true,
+																															"object": {
+																																"type": "Identifier",
+																																"name": "exports"
+																															},
+																															"property": {
+																																"type": "Identifier",
+																																"name": "name"
+																															}
+																														},
+																														"right": {
+																															"type": "MemberExpression",
+																															"computed": true,
+																															"object": {
+																																"type": "Identifier",
+																																"name": "value"
+																															},
+																															"property": {
+																																"type": "MemberExpression",
+																																"computed": true,
+																																"object": {
+																																	"type": "Identifier",
+																																	"name": "mappings"
+																																},
+																																"property": {
+																																	"type": "Identifier",
+																																	"name": "name"
+																																}
+																															}
+																														}
+																													}
+																												}
+																											]
+																										},
+																										"each": false
+																									}
+																								]
+																							}
+																						}
+																					]
+																				},
+																				"alternate": {
+																					"type": "BlockStatement",
+																					"body": [
+																						{
+																							"type": "ExpressionStatement",
+																							"expression": {
+																								"type": "AssignmentExpression",
+																								"operator": "=",
+																								"left": {
+																									"type": "MemberExpression",
+																									"computed": true,
+																									"object": {
+																										"type": "Identifier",
+																										"name": "exports"
+																									},
+																									"property": {
+																										"type": "Identifier",
+																										"name": "name"
+																									}
+																								},
+																								"right": {
+																									"type": "Identifier",
+																									"name": "value"
+																								}
+																							}
+																						}
+																					]
 																				}
 																			}
 																		]
@@ -247,6 +424,261 @@
 			"rest": null,
 			"generator": false,
 			"expression": false
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "quickExamples",
+						"raw": "'quickExamples'"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "$"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "Identifier",
+														"name": "es6i__modules"
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "jquery",
+														"raw": "\"jquery\""
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "encrypt"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i__modules"
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "crypto",
+															"raw": "\"crypto\""
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "encrypt"
+												}
+											}
+										},
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "decrypt"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i__modules"
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "crypto",
+															"raw": "\"crypto\""
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "decrypt"
+												}
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "enc"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i__modules"
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "crypto",
+															"raw": "\"crypto\""
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "encrypt"
+												}
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "export"
+										},
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "Identifier",
+														"name": "es6i__modules"
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "crypto",
+														"raw": "\"crypto\""
+													}
+												},
+												"arguments": []
+											},
+											{
+												"type": "Literal",
+												"value": null
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "export"
+										},
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "Identifier",
+														"name": "es6i__modules"
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "crypto",
+														"raw": "\"crypto\""
+													}
+												},
+												"arguments": []
+											},
+											{
+												"type": "ObjectExpression",
+												"properties": [
+													{
+														"type": "Property",
+														"key": {
+															"type": "Literal",
+															"value": "foo"
+														},
+														"value": {
+															"type": "Literal",
+															"value": "foo"
+														}
+													},
+													{
+														"type": "Property",
+														"key": {
+															"type": "Literal",
+															"value": "barrrr"
+														},
+														"value": {
+															"type": "Literal",
+															"value": "bar"
+														}
+													}
+												]
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
 		},
 		{
 			"type": "VariableDeclaration",
