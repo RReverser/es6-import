@@ -11,95 +11,86 @@ var esprima = require('esprima'),
 		type: 'Identifier',
 		name: 'es6i__export'
 	},
+	es6i__modules = {
+		type: 'Identifier',
+		name: 'es6i__modules'
+	},
 	empty = {
 		type: 'EmptyStatement'
 	};
 
+ast.body.unshift({
+	type: 'VariableDeclaration',
+	kind: 'var',
+	declarations: [{
+		type: 'VariableDeclarator',
+		id: es6i__modules,
+		init: {
+			type: 'ObjectExpression',
+			properties: []
+		}
+	}]
+});
+
 fs.writeFileSync(testPath + 'source.in.json', JSON.stringify(ast, null, '\t'));
+
+function moduleById(id) {
+	return {
+		type: 'MemberExpression',
+		object: es6i__modules,
+		computed: true,
+		property: id.type === 'Literal' ? id : {
+			type: 'Literal',
+			value: id.name
+		}
+	};
+}
 
 var handlers = {};
 
 handlers.ImportDeclaration = function () {
 	var module = {
-		type: 'CallExpression',
-		callee: {
-			type: 'Identifier',
-			name: this.source.value
+			type: 'CallExpression',
+			callee: moduleById(this.source),
+			arguments: []
 		},
-		arguments: []
-	};
+		declarations;
 
 	if (this.kind === 'default') {
-		return {
-			type: 'VariableDeclaration',
-			kind: 'var',
-			declarations: [{
-				type: 'VariableDeclarator',
-				id: this.specifiers[0].id,
-				init: module
-			}]
-		};
-	}
-
+		declarations = [{
+			type: 'VariableDeclarator',
+			id: this.specifiers[0].id,
+			init: module
+		}];
+	} else
 	if (this.specifiers.length === 1) {
-		return {
-			type: 'VariableDeclaration',
-			kind: 'var',
-			declarations: [{
+		declarations = [{
+			type: 'VariableDeclarator',
+			id: this.specifiers[0].name || this.specifiers[0].id,
+			init: {
+				type: 'MemberExpression',
+				object: module,
+				property: this.specifiers[0].id
+			}
+		}];
+	} else {
+		declarations = this.specifiers.map(function (specifier) {
+			return {
 				type: 'VariableDeclarator',
-				id: this.specifiers[0].name || this.specifiers[0].id,
+				id: specifier.name || specifier.id,
 				init: {
 					type: 'MemberExpression',
 					object: module,
-					property: this.specifiers[0].id
+					property: specifier.id
 				}
-			}]
-		};
+			}
+		});
 	}
 
 	return {
-		type: 'BlockStatement',
-		body: [
-			{
-				type: 'VariableDeclaration',
-				kind: 'var',
-				declarations: this.specifiers.map(function (specifier) {
-					return {
-						type: 'VariableDeclarator',
-						id: specifier.name || specifier.id
-					}
-				})
-			},
-			{
-				type: 'ExpressionStatement',
-				expression: {
-					type: 'CallExpression',
-					callee: {
-						type: 'FunctionExpression',
-						params: [es6i__import],
-						body: {
-							type: 'BlockStatement',
-							body: this.specifiers.map(function (specifier) {
-								return {
-									type: 'ExpressionStatement',
-									expression: {
-										type: 'AssignmentExpression',
-										left: specifier.name || specifier.id,
-										operator: '=',
-										right: {
-											type: 'MemberExpression',
-											object: es6i__import,
-											property: specifier.id
-										}
-									}
-								};
-							})
-						}
-					},
-					arguments: [module]
-				}
-			}
-		]
+		type: 'VariableDeclaration',
+		kind: 'var',
+		declarations: declarations
 	};
 };
 
@@ -147,58 +138,76 @@ handlers.ExportDeclaration = function () {
 };
 
 handlers.ModuleDeclaration = function () {
-	var id = this.id.type === 'Identifier' ? this.id : {
-		type: 'Identifier',
-		name: this.id.value
-	};
+	var block, expr;
 
 	if (this.source !== null) {
-		return {
-			type: 'VariableDeclaration',
-			kind: 'var',
-			declarations: [{
-				type: 'VariableDeclarator',
-				id: id,
-				init: {
-					type: 'CallExpression',
-					callee: {
-						type: 'Identifier',
-						name: '__somehow_load__'
-					},
-					arguments: [this.source]
+		block = {
+			type: 'BlockStatement',
+			body: [{
+				type: 'ExpressionStatement',
+				expression: {
+					type: 'Literal',
+					value: '[content from ' + this.source.value + ' goes here]'
 				}
 			}]
 		};
+	} else {
+		block = this.body;
+	}
+
+	if (block.body.length > 0) {
+		block.body.unshift(
+			{
+				type: 'VariableDeclaration',
+				kind: 'var',
+				declarations: [{
+					type: 'VariableDeclarator',
+					id: es6i__export,
+					init: {
+						type: 'ObjectExpression',
+						properties: []
+					}
+				}]
+			},
+			{
+				type: 'ExpressionStatement',
+				expression: {
+					type: 'AssignmentExpression',
+					left: moduleById(this.id),
+					operator: '=',
+					right: {
+						type: 'FunctionExpression',
+						params: [],
+						body: {
+							type: 'BlockStatement',
+							body: [{
+								type: 'ReturnStatement',
+								argument: es6i__export
+							}]
+						}
+					}
+				}
+			}
+		);
+
+		block.body.push({
+			type: 'ReturnStatement',
+			argument: es6i__export
+		});
 	}
 
 	return {
-		type: 'FunctionDeclaration',
-		id: id,
-		params: [],
-		body:
-			this.body.body.length > 0
-			? {
-				type: 'BlockStatement',
-				body:
-					[{
-						type: 'VariableDeclaration',
-						kind: 'var',
-						declarations: [{
-							type: 'VariableDeclarator',
-							id: es6i__export,
-							init: {
-								type: 'ObjectExpression',
-								properties: []
-							}
-						}]
-					}]
-					.concat(this.body.body)
-					.concat([{
-						type: 'ReturnStatement',
-						argument: es6i__export
-					}])
+		type: 'ExpressionStatement',
+		expression: {
+			type: 'AssignmentExpression',
+			left: moduleById(this.id),
+			operator: '=',
+			right: {
+				type: 'FunctionExpression',
+				params: [],
+				body: block
 			}
-			: this.body
+		}
 	};
 };
 

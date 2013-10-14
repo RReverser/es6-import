@@ -2,6 +2,23 @@
 	"type": "Program",
 	"body": [
 		{
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
+						"type": "Identifier",
+						"name": "es6i__modules"
+					},
+					"init": {
+						"type": "ObjectExpression",
+						"properties": []
+					}
+				}
+			]
+		},
+		{
 			"type": "ModuleDeclaration",
 			"id": {
 				"type": "Identifier",
