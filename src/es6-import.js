@@ -15,22 +15,145 @@ var esprima = require('esprima'),
 		type: 'Identifier',
 		name: 'es6i__modules'
 	},
+	es6i__define = {
+		type: 'Identifier',
+		name: 'es6i__define'
+	},
 	empty = {
 		type: 'EmptyStatement'
 	};
 
-ast.body.unshift({
-	type: 'VariableDeclaration',
-	kind: 'var',
-	declarations: [{
-		type: 'VariableDeclarator',
-		id: es6i__modules,
-		init: {
-			type: 'ObjectExpression',
-			properties: []
+ast.body.unshift(
+	{
+		type: 'VariableDeclaration',
+		kind: 'var',
+		declarations: [{
+			type: 'VariableDeclarator',
+			id: es6i__modules,
+			init: {
+				type: 'ObjectExpression',
+				properties: []
+			}
+		}]
+	},
+	{
+		type: "FunctionDeclaration",
+		id: {
+			type: "Identifier",
+			name: "es6i__define"
+		},
+		params: [
+			{
+				type: "Identifier",
+				name: "name"
+			},
+			{
+				type: "Identifier",
+				name: "module"
+			}
+		],
+		defaults: [],
+		body: {
+			type: "BlockStatement",
+			body: [
+				{
+					type: "ExpressionStatement",
+					expression: {
+						type: "AssignmentExpression",
+						operator: "=",
+						left: {
+							type: "MemberExpression",
+							computed: true,
+							object: {
+								type: "Identifier",
+								name: "es6i__modules"
+							},
+							property: {
+								type: "Identifier",
+								name: "name"
+							}
+						},
+						right: {
+							type: "FunctionExpression",
+							params: [],
+							body: {
+								type: "BlockStatement",
+								body: [
+									{
+										type: "VariableDeclaration",
+										declarations: [
+											{
+												type: "VariableDeclarator",
+												id: {
+													type: "Identifier",
+													name: "exports"
+												},
+												init: {
+													type: "ObjectExpression",
+													properties: []
+												}
+											}
+										],
+										kind: "var"
+									},
+									{
+										type: "ExpressionStatement",
+										expression: {
+											type: "AssignmentExpression",
+											operator: "=",
+											left: {
+												type: "MemberExpression",
+												computed: true,
+												object: {
+													type: "Identifier",
+													name: "es6i__modules"
+												},
+												property: {
+													type: "Identifier",
+													name: "name"
+												}
+											},
+											right: {
+												type: "FunctionExpression",
+												params: [],
+												body: {
+													type: "BlockStatement",
+													body: [
+														{
+															type: "ReturnStatement",
+															argument: {
+																type: "Identifier",
+																name: "exports"
+															}
+														}
+													]
+												}
+											}
+										}
+									},
+									{
+										type: "ExpressionStatement",
+										expression: {
+											type: "CallExpression",
+											callee: {
+												type: "Identifier",
+												name: "module"
+											},
+											arguments: [{
+												type: "Identifier",
+												name: "exports"
+											}]
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			]
 		}
-	}]
-});
+	}
+);
 
 fs.writeFileSync(testPath + 'source.in.json', JSON.stringify(ast, null, '\t'));
 
@@ -151,40 +274,6 @@ handlers.ModuleDeclaration = function () {
 	var block = this.body;
 
 	if (block.body.length > 0) {
-		block.body.unshift(
-			{
-				type: 'VariableDeclaration',
-				kind: 'var',
-				declarations: [{
-					type: 'VariableDeclarator',
-					id: es6i__export,
-					init: {
-						type: 'ObjectExpression',
-						properties: []
-					}
-				}]
-			},
-			{
-				type: 'ExpressionStatement',
-				expression: {
-					type: 'AssignmentExpression',
-					left: moduleById(this.id),
-					operator: '=',
-					right: {
-						type: 'FunctionExpression',
-						params: [],
-						body: {
-							type: 'BlockStatement',
-							body: [{
-								type: 'ReturnStatement',
-								argument: es6i__export
-							}]
-						}
-					}
-				}
-			}
-		);
-
 		block.body.push({
 			type: 'ReturnStatement',
 			argument: es6i__export
@@ -194,14 +283,13 @@ handlers.ModuleDeclaration = function () {
 	return {
 		type: 'ExpressionStatement',
 		expression: {
-			type: 'AssignmentExpression',
-			left: moduleById(this.id),
-			operator: '=',
-			right: {
+			type: 'CallExpression',
+			callee: es6i__define,
+			arguments: [this.id, {
 				type: 'FunctionExpression',
-				params: [],
+				params: [es6i__export],
 				body: block
-			}
+			}]
 		}
 	};
 };
