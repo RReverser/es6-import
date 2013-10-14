@@ -828,15 +828,8 @@
 								"expression": {
 									"type": "AssignmentExpression",
 									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "even"
-										}
+										"type": "Identifier",
+										"name": "es6i__export"
 									},
 									"operator": "=",
 									"right": {
@@ -1029,15 +1022,8 @@
 								"expression": {
 									"type": "AssignmentExpression",
 									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "odd"
-										}
+										"type": "Identifier",
+										"name": "es6i__export"
 									},
 									"operator": "=",
 									"right": {

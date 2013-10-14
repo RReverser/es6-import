@@ -96,16 +96,17 @@ handlers.ImportDeclaration = function () {
 
 handlers.ExportDeclaration = function () {
 	var exports = {
-		type: 'BlockStatement',
-		body: []
-	};
+			type: 'BlockStatement',
+			body: []
+		},
+		isDefault = this.default;
 
 	function addExport(id, value) {
 		exports.body.push({
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'AssignmentExpression',
-				left: this.default ? es6i__export : {
+				left: isDefault ? es6i__export : {
 					type: 'MemberExpression',
 					object: es6i__export,
 					property: id

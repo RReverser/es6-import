@@ -43,7 +43,7 @@ es6i__modules['Even'] = function () {
         return es6i__export;
     };
     var odd = es6i__modules['Odd']();
-    es6i__export.even = function even(n) {
+    es6i__export = function even(n) {
         return n == 0 || odd(n - 1);
     };
     return es6i__export;
@@ -54,7 +54,7 @@ es6i__modules['Odd'] = function () {
         return es6i__export;
     };
     var even = es6i__modules['Even']();
-    es6i__export.odd = function odd(n) {
+    es6i__export = function odd(n) {
         return n != 0 && even(n - 1);
     };
     return es6i__export;
