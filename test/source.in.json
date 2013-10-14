@@ -3,7 +3,6 @@
 	"body": [
 		{
 			"type": "VariableDeclaration",
-			"kind": "var",
 			"declarations": [
 				{
 					"type": "VariableDeclarator",
@@ -16,7 +15,8 @@
 						"properties": []
 					}
 				}
-			]
+			],
+			"kind": "var"
 		},
 		{
 			"type": "FunctionDeclaration",
@@ -57,7 +57,9 @@
 							},
 							"right": {
 								"type": "FunctionExpression",
+								"id": null,
 								"params": [],
+								"defaults": [],
 								"body": {
 									"type": "BlockStatement",
 									"body": [
@@ -97,19 +99,16 @@
 												},
 												"right": {
 													"type": "FunctionExpression",
+													"id": null,
 													"params": [],
+													"defaults": [],
 													"body": {
 														"type": "BlockStatement",
-														"body": [
-															{
-																"type": "ReturnStatement",
-																"argument": {
-																	"type": "Identifier",
-																	"name": "exports"
-																}
-															}
-														]
-													}
+														"body": []
+													},
+													"rest": null,
+													"generator": false,
+													"expression": false
 												}
 											}
 										},
@@ -123,19 +122,107 @@
 												},
 												"arguments": [
 													{
-														"type": "Identifier",
-														"name": "exports"
+														"type": "FunctionExpression",
+														"id": null,
+														"params": [
+															{
+																"type": "Identifier",
+																"name": "value"
+															},
+															{
+																"type": "Identifier",
+																"name": "name"
+															}
+														],
+														"defaults": [],
+														"body": {
+															"type": "BlockStatement",
+															"body": [
+																{
+																	"type": "IfStatement",
+																	"test": {
+																		"type": "BinaryExpression",
+																		"operator": "!==",
+																		"left": {
+																			"type": "Identifier",
+																			"name": "name"
+																		},
+																		"right": {
+																			"type": "Identifier",
+																			"name": "undefined"
+																		}
+																	},
+																	"consequent": {
+																		"type": "BlockStatement",
+																		"body": [
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"operator": "=",
+																					"left": {
+																						"type": "MemberExpression",
+																						"computed": true,
+																						"object": {
+																							"type": "Identifier",
+																							"name": "exports"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "name"
+																						}
+																					},
+																					"right": {
+																						"type": "Identifier",
+																						"name": "value"
+																					}
+																				}
+																			}
+																		]
+																	},
+																	"alternate": {
+																		"type": "BlockStatement",
+																		"body": [
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"operator": "=",
+																					"left": {
+																						"type": "Identifier",
+																						"name": "exports"
+																					},
+																					"right": {
+																						"type": "Identifier",
+																						"name": "value"
+																					}
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														},
+														"rest": null,
+														"generator": false,
+														"expression": false
 													}
 												]
 											}
 										}
 									]
-								}
+								},
+								"rest": null,
+								"generator": false,
+								"expression": false
 							}
 						}
 					}
 				]
-			}
+			},
+			"rest": null,
+			"generator": false,
+			"expression": false
 		},
 		{
 			"type": "ModuleDeclaration",

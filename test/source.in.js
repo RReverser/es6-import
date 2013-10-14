@@ -35,41 +35,41 @@ alert(YUI.dom.Color.toHex("blue"));
 
 // easy!
 module 'Even' {
-    import odd from 'Odd';
-    export default function even(n) {
-        return n == 0 || odd(n - 1);
-    }
+	import odd from 'Odd';
+	export default function even(n) {
+		return n == 0 || odd(n - 1);
+	}
 }
  
 // woo-hoo!
 module 'Odd' {
-    import even from 'Even';
-    export default function odd(n) {
-        return n != 0 && even(n - 1);
-    }
+	import even from 'Even';
+	export default function odd(n) {
+		return n != 0 && even(n - 1);
+	}
 }
 
 //=== Parameterization ===//
 
 module 'DOMMunger' {
-    // parameterized by a DOM implementation
-    export function make(domAPI) {
-        return {
-            munge: function(doc) {
-                domAPI.alert('hi!');
-            }
-        };
-    }
+	// parameterized by a DOM implementation
+	export function make(domAPI) {
+		return {
+			munge: function(doc) {
+				domAPI.alert('hi!');
+			}
+		};
+	}
 }
 
 module 'SafeDOM' {
-    import { alert } from 'DOM';
+	import { alert } from 'DOM';
  
-    export let document = {
-        write: function(txt) {
-            alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...')
-        },
-    };
+	export let document = {
+		write: function(txt) {
+			alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...')
+		},
+	};
 }
 module DOMMunger from 'DOMMunger';
 module SafeDOM from 'SafeDOM';
@@ -78,16 +78,16 @@ var instance = DOMMunger.make(SafeDOM);
 //=== Shared state ===//
 
 module 'counter' {
-    var n = 0;
-    export function increment() { return n++ }
-    export function current() { return n }
+	var n = 0;
+	export function increment() { return n++ }
+	export function current() { return n }
 }
 
 import { open, close } from 'io/File';
 export function scan(folder) {
-    try {
-        var h = open(folder)
-    } finally { close(h) }
+	try {
+		var h = open(folder)
+	} finally { close(h) }
 }
 
 module lexer from 'compiler/Lexer';
