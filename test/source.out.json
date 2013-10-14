@@ -104,7 +104,15 @@
 													"defaults": [],
 													"body": {
 														"type": "BlockStatement",
-														"body": []
+														"body": [
+															{
+																"type": "ReturnStatement",
+																"argument": {
+																	"type": "Identifier",
+																	"name": "exports"
+																}
+															}
+														]
 													},
 													"rest": null,
 													"generator": false,
@@ -142,14 +150,23 @@
 																	"type": "IfStatement",
 																	"test": {
 																		"type": "BinaryExpression",
-																		"operator": "!==",
+																		"operator": ">",
 																		"left": {
-																			"type": "Identifier",
-																			"name": "name"
+																			"type": "MemberExpression",
+																			"computed": false,
+																			"object": {
+																				"type": "Identifier",
+																				"name": "arguments"
+																			},
+																			"property": {
+																				"type": "Identifier",
+																				"name": "length"
+																			}
 																		},
 																		"right": {
-																			"type": "Identifier",
-																			"name": "undefined"
+																			"type": "Literal",
+																			"value": 1,
+																			"raw": "1"
 																		}
 																	},
 																	"consequent": {
@@ -208,6 +225,13 @@
 														"expression": false
 													}
 												]
+											}
+										},
+										{
+											"type": "ReturnStatement",
+											"argument": {
+												"type": "Identifier",
+												"name": "exports"
 											}
 										}
 									]
