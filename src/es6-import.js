@@ -22,19 +22,27 @@ var esprima = require('esprima'),
 	},
 	empty = {
 		type: 'EmptyStatement'
-	};
-
-ast.body = helpers_ast.body.concat(ast.body);
+	},
+	resolvedModules = {};
 
 fs.writeFileSync(testPath + 'source.in.json', JSON.stringify(ast, null, '\t'));
 
-function moduleById(id) {
+function moduleBySource(src, forDeclaration) {
+	if (!(src.value in resolvedModules)) {
+		resolvedModules[src.value] = false;
+	}
+
 	return {
 		type: 'MemberExpression',
 		object: es6i__modules,
 		computed: true,
-		property: id
+		property: src
 	};
+}
+
+function resolveModule(src) {
+	resolvedModules[src.value] = true;
+	return src;
 }
 
 function id2literal(id) {
@@ -49,7 +57,7 @@ var handlers = {};
 handlers.ImportDeclaration = function () {
 	var module = {
 			type: 'CallExpression',
-			callee: moduleById(this.source),
+			callee: moduleBySource(this.source),
 			arguments: []
 		},
 		declarations;
@@ -114,7 +122,7 @@ handlers.ExportDeclaration = function () {
 		addExport(
 			{
 				type: 'CallExpression',
-				callee: moduleById(this.source),
+				callee: moduleBySource(this.source),
 				arguments: []
 			},
 			(
@@ -166,10 +174,12 @@ handlers.ModuleDeclaration = function () {
 			declarations: [{
 				type: 'VariableDeclarator',
 				id: this.id,
-				init: moduleById(this.source)
+				init: moduleBySource(this.source, true)
 			}]
 		};
 	}
+
+	resolveModule(this.id);
 
 	return {
 		type: 'ExpressionStatement',
@@ -185,7 +195,7 @@ handlers.ModuleDeclaration = function () {
 	};
 };
 
-(function traverse(node) {
+function traverse(node) {
 	if (node.type in handlers) {
 		node = handlers[node.type].call(node);
 	}
@@ -198,7 +208,40 @@ handlers.ModuleDeclaration = function () {
 	}
 
 	return node;
-})(ast);
+}
+
+traverse(ast);
+
+ast.body =
+	helpers_ast.body
+	.concat(
+		Object.keys(resolvedModules)
+		.filter(function (name) { return !resolvedModules[name] })
+		.map(function (name) {
+			return traverse({
+				type: 'ModuleDeclaration',
+				id: {
+					type: 'Literal',
+					value: name
+				},
+				source: null,
+				body: {
+					type: 'BlockStatement',
+					body: [
+						{
+							type: 'ExpressionStatement',
+							expression: {
+								type: 'Literal',
+								value: '[content from ' + name + (name.slice(-3).toLowerCase() === '.js' ? '' : '.js') + ' goes here]'
+							}
+						}
+					]
+				}
+			});
+		})
+	)
+	.concat(ast.body)
+;
 
 fs.writeFileSync(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'));
 fs.writeFileSync(testPath + 'source.out.js', escodegen.generate(ast));

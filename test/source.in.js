@@ -4,7 +4,6 @@ module 'quickExamples' {
 	import { encrypt as enc } from "crypto";   // binding and renaming one of a module's exports
 	export * from "crypto";                    // re-exporting another module's exports
 	export { foo, bar as barrrr } from "crypto";         // re-exporting specified exports from another module
-	export *;
 }
 
 module Math from 'math';

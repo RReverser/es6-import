@@ -28,6 +28,39 @@ function es6i__define(name, module) {
         return exports;
     };
 }
+es6i__define('jquery', function (export) {
+    '[content from jquery.js goes here]';
+});
+es6i__define('crypto', function (export) {
+    '[content from crypto.js goes here]';
+});
+es6i__define('math', function (export) {
+    '[content from math.js goes here]';
+});
+es6i__define('shape', function (export) {
+    '[content from shape.js goes here]';
+});
+es6i__define('cowboy', function (export) {
+    '[content from cowboy.js goes here]';
+});
+es6i__define('http://json.org/modules/json2.js', function (export) {
+    '[content from http://json.org/modules/json2.js goes here]';
+});
+es6i__define('http://developer.yahoo.com/modules/yui3.js', function (export) {
+    '[content from http://developer.yahoo.com/modules/yui3.js goes here]';
+});
+es6i__define('DOM', function (export) {
+    '[content from DOM.js goes here]';
+});
+es6i__define('io/File', function (export) {
+    '[content from io/File.js goes here]';
+});
+es6i__define('compiler/Lexer', function (export) {
+    '[content from compiler/Lexer.js goes here]';
+});
+es6i__define('shell', function (export) {
+    '[content from shell.js goes here]';
+});
 es6i__define('quickExamples', function (export) {
     var $ = es6i__modules['jquery']();
     var encrypt = es6i__modules['crypto']().encrypt, decrypt = es6i__modules['crypto']().decrypt;

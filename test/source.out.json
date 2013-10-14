@@ -436,6 +436,413 @@
 				"arguments": [
 					{
 						"type": "Literal",
+						"value": "jquery"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from jquery.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "crypto"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from crypto.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "math"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from math.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "shape"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from shape.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "cowboy"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from cowboy.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "http://json.org/modules/json2.js"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from http://json.org/modules/json2.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "http://developer.yahoo.com/modules/yui3.js"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from http://developer.yahoo.com/modules/yui3.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "DOM"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from DOM.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "io/File"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from io/File.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "compiler/Lexer"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from compiler/Lexer.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "shell"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from shell.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "Identifier",
+					"name": "es6i__define"
+				},
+				"arguments": [
+					{
+						"type": "Literal",
 						"value": "quickExamples",
 						"raw": "'quickExamples'"
 					},
