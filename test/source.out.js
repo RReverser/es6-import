@@ -1,12 +1,5 @@
 var es6i__modules = {};
-es6i__modules['Math'] = function () {
-    var es6i__export = {};
-    es6i__modules['Math'] = function () {
-        return es6i__export;
-    };
-    '[content from math goes here]';
-    return es6i__export;
-};
+var Math = es6i__modules['math'];
 alert('2\u03c0 = ' + Math.sum(Math.pi, Math.pi));
 var drawShape = es6i__modules['shape']().draw;
 var drawGun = es6i__modules['cowboy']().draw;
@@ -19,23 +12,9 @@ es6i__modules['widgets/alert'] = function () {
 es6i__modules['widgets/textarea'] = function () {
 };
 var messageBox = es6i__modules['widgets/alert']().messageBox, confirmDialog = es6i__modules['widgets/alert']().confirmDialog;
-es6i__modules['JSON'] = function () {
-    var es6i__export = {};
-    es6i__modules['JSON'] = function () {
-        return es6i__export;
-    };
-    '[content from http://json.org/modules/json2.js goes here]';
-    return es6i__export;
-};
+var JSON = es6i__modules['http://json.org/modules/json2.js'];
 alert(JSON.stringify({ 'hi': 'world' }));
-es6i__modules['YUI'] = function () {
-    var es6i__export = {};
-    es6i__modules['YUI'] = function () {
-        return es6i__export;
-    };
-    '[content from http://developer.yahoo.com/modules/yui3.js goes here]';
-    return es6i__export;
-};
+var YUI = es6i__modules['http://developer.yahoo.com/modules/yui3.js'];
 alert(YUI.dom.Color.toHex('blue'));
 es6i__modules['Even'] = function () {
     var es6i__export = {};
@@ -86,22 +65,8 @@ es6i__modules['SafeDOM'] = function () {
     };
     return es6i__export;
 };
-es6i__modules['DOMMunger'] = function () {
-    var es6i__export = {};
-    es6i__modules['DOMMunger'] = function () {
-        return es6i__export;
-    };
-    '[content from DOMMunger goes here]';
-    return es6i__export;
-};
-es6i__modules['SafeDOM'] = function () {
-    var es6i__export = {};
-    es6i__modules['SafeDOM'] = function () {
-        return es6i__export;
-    };
-    '[content from SafeDOM goes here]';
-    return es6i__export;
-};
+var DOMMunger = es6i__modules['DOMMunger'];
+var SafeDOM = es6i__modules['SafeDOM'];
 var instance = DOMMunger.make(SafeDOM);
 es6i__modules['counter'] = function () {
     var es6i__export = {};
@@ -125,19 +90,5 @@ es6i__export.scan = function scan(folder) {
         close(h);
     }
 };
-es6i__modules['lexer'] = function () {
-    var es6i__export = {};
-    es6i__modules['lexer'] = function () {
-        return es6i__export;
-    };
-    '[content from compiler/Lexer goes here]';
-    return es6i__export;
-};
-es6i__modules['shell'] = function () {
-    var es6i__export = {};
-    es6i__modules['shell'] = function () {
-        return es6i__export;
-    };
-    '[content from shell goes here]';
-    return es6i__export;
-};
+var lexer = es6i__modules['compiler/Lexer'];
+var shell = es6i__modules['shell'];

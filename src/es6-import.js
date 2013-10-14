@@ -39,10 +39,7 @@ function moduleById(id) {
 		type: 'MemberExpression',
 		object: es6i__modules,
 		computed: true,
-		property: id.type === 'Literal' ? id : {
-			type: 'Literal',
-			value: id.name
-		}
+		property: id
 	};
 }
 
@@ -139,22 +136,19 @@ handlers.ExportDeclaration = function () {
 };
 
 handlers.ModuleDeclaration = function () {
-	var block, expr;
-
 	if (this.source !== null) {
-		block = {
-			type: 'BlockStatement',
-			body: [{
-				type: 'ExpressionStatement',
-				expression: {
-					type: 'Literal',
-					value: '[content from ' + this.source.value + ' goes here]'
-				}
+		return {
+			type: 'VariableDeclaration',
+			kind: 'var',
+			declarations: [{
+				type: 'VariableDeclarator',
+				id: this.id,
+				init: moduleById(this.source)
 			}]
 		};
-	} else {
-		block = this.body;
 	}
+
+	var block = this.body;
 
 	if (block.body.length > 0) {
 		block.body.unshift(

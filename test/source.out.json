@@ -19,98 +19,30 @@
 			]
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "Math"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "Math"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "Math"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from math goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "math",
+							"raw": "'math'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
 			"type": "ExpressionStatement",
@@ -429,98 +361,30 @@
 			]
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "JSON"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "JSON"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "JSON"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from http://json.org/modules/json2.js goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "http://json.org/modules/json2.js",
+							"raw": "'http://json.org/modules/json2.js'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
 			"type": "ExpressionStatement",
@@ -573,98 +437,30 @@
 			}
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "YUI"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "YUI"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "YUI"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from http://developer.yahoo.com/modules/yui3.js goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "http://developer.yahoo.com/modules/yui3.js",
+							"raw": "'http://developer.yahoo.com/modules/yui3.js'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
 			"type": "ExpressionStatement",
@@ -1491,192 +1287,56 @@
 			}
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "DOMMunger"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "DOMMunger"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "DOMMunger"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from DOMMunger goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "DOMMunger",
+							"raw": "'DOMMunger'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "SafeDOM"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "SafeDOM"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "SafeDOM"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from SafeDOM goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "SafeDOM",
+							"raw": "'SafeDOM'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
 			"type": "VariableDeclaration",
@@ -2074,192 +1734,56 @@
 			}
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "lexer"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "lexer"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "lexer"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from compiler/Lexer goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "compiler/Lexer",
+							"raw": "'compiler/Lexer'"
+						}
 					}
 				}
-			}
+			]
 		},
 		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
+			"type": "VariableDeclaration",
+			"kind": "var",
+			"declarations": [
+				{
+					"type": "VariableDeclarator",
+					"id": {
 						"type": "Identifier",
-						"name": "es6i__modules"
+						"name": "shell"
 					},
-					"computed": true,
-					"property": {
-						"type": "Literal",
-						"value": "shell"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "FunctionExpression",
-					"params": [],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "VariableDeclaration",
-								"kind": "var",
-								"declarations": [
-									{
-										"type": "VariableDeclarator",
-										"id": {
-											"type": "Identifier",
-											"name": "es6i__export"
-										},
-										"init": {
-											"type": "ObjectExpression",
-											"properties": []
-										}
-									}
-								]
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i__modules"
-										},
-										"computed": true,
-										"property": {
-											"type": "Literal",
-											"value": "shell"
-										}
-									},
-									"operator": "=",
-									"right": {
-										"type": "FunctionExpression",
-										"params": [],
-										"body": {
-											"type": "BlockStatement",
-											"body": [
-												{
-													"type": "ReturnStatement",
-													"argument": {
-														"type": "Identifier",
-														"name": "es6i__export"
-													}
-												}
-											]
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "Literal",
-									"value": "[content from shell goes here]"
-								}
-							},
-							{
-								"type": "ReturnStatement",
-								"argument": {
-									"type": "Identifier",
-									"name": "es6i__export"
-								}
-							}
-						]
+					"init": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i__modules"
+						},
+						"computed": true,
+						"property": {
+							"type": "Literal",
+							"value": "shell",
+							"raw": "'shell'"
+						}
 					}
 				}
-			}
+			]
 		}
 	]
 }
