@@ -2973,9 +2973,6 @@
 			}
 		},
 		{
-			"type": "EmptyStatement"
-		},
-		{
 			"type": "VariableDeclaration",
 			"kind": "var",
 			"declarations": [

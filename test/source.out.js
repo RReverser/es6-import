@@ -145,7 +145,6 @@ var open, close;
     open = es6i_import.open;
     close = es6i_import.close;
 }(es6i.modules['io/File']));
-;
 var lexer = es6i.modules['compiler/Lexer'];
 var shell = es6i.modules['shell'];
 es6i.modules['module'];
