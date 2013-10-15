@@ -36,25 +36,33 @@ var handlers = {};
 
 handlers.ImportDeclaration = function () {
 	var module = {
-			type: 'CallExpression',
-			callee: moduleBySource(this.source),
-			arguments: []
-		},
-		varDeclaration = {
-			type: 'VariableDeclaration',
-			kind: 'var',
-			declarations: this.specifiers.map(function (specifier) {
-				return {
-					type: 'VariableDeclarator',
-					id: specifier.name || specifier.id,
-					init: {
-						type: 'MemberExpression',
-						object: module,
-						property: specifier.id
-					}
-				}
-			})
+		type: 'CallExpression',
+		callee: moduleBySource(this.source),
+		arguments: []
+	};
+
+	if (this.specifiers.length === 0) {
+		return {
+			type: 'ExpressionStatement',
+			expression: module
 		};
+	}
+
+	var varDeclaration = {
+		type: 'VariableDeclaration',
+		kind: 'var',
+		declarations: this.specifiers.map(function (specifier) {
+			return {
+				type: 'VariableDeclarator',
+				id: specifier.name || specifier.id,
+				init: {
+					type: 'MemberExpression',
+					object: module,
+					property: specifier.id
+				}
+			}
+		})
+	};
 
 	if (this.specifiers.length === 1) {
 		if (this.kind === 'default') {

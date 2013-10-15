@@ -44,6 +44,9 @@ es6i.define('compiler/Lexer', function (es6i_export) {
 es6i.define('shell', function (es6i_export) {
     '[content from shell.js goes here]';
 });
+es6i.define('module', function (es6i_export) {
+    '[content from module.js goes here]';
+});
 es6i.define('quickExamples', function (es6i_export) {
     var $ = es6i.modules['jquery']().es6i_default;
     var encrypt, decrypt;
@@ -152,3 +155,4 @@ function scan(folder) {
 es6i_export.scan = scan;
 var lexer = es6i.modules['compiler/Lexer']();
 var shell = es6i.modules['shell']();
+es6i.modules['module']();

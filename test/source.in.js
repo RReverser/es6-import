@@ -109,3 +109,5 @@ export function scan(folder) {
 
 module lexer from 'compiler/Lexer';
 module shell from 'shell';
+
+import 'module';

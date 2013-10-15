@@ -1228,6 +1228,15 @@
 				"raw": "'shell'"
 			},
 			"body": null
+		},
+		{
+			"type": "ImportDeclaration",
+			"specifiers": [],
+			"source": {
+				"type": "Literal",
+				"value": "module",
+				"raw": "'module'"
+			}
 		}
 	]
 }

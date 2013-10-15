@@ -697,6 +697,50 @@
 				"arguments": [
 					{
 						"type": "Literal",
+						"value": "module"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "es6i_export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from module.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "Identifier",
+						"name": "es6i"
+					},
+					"property": {
+						"type": "Identifier",
+						"name": "define"
+					}
+				},
+				"arguments": [
+					{
+						"type": "Literal",
 						"value": "quickExamples",
 						"raw": "'quickExamples'"
 					},
@@ -3178,6 +3222,33 @@
 					}
 				}
 			]
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i"
+						},
+						"property": {
+							"type": "Identifier",
+							"name": "modules"
+						}
+					},
+					"computed": true,
+					"property": {
+						"type": "Literal",
+						"value": "module",
+						"raw": "'module'"
+					}
+				},
+				"arguments": []
+			}
 		}
 	],
 	"es6i_names": {
