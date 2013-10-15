@@ -46,13 +46,11 @@ es6i.define('shell', function (es6i_export) {
 });
 es6i.define('quickExamples', function (es6i_export) {
     var $ = es6i.modules['jquery']().es6i_default;
-    {
-        var encrypt, decrypt;
-        (function (es6i_import) {
-            encrypt = es6i_import.encrypt;
-            decrypt = es6i_import.decrypt;
-        }(es6i.modules['crypto']()));
-    }
+    var encrypt, decrypt;
+    (function (es6i_import) {
+        encrypt = es6i_import.encrypt;
+        decrypt = es6i_import.decrypt;
+    }(es6i.modules['crypto']()));
     var enc = es6i.modules['crypto']().encrypt;
     (function (es6i_import) {
         for (var name in es6i_import)
@@ -75,13 +73,11 @@ es6i.define('widgets/alert', function (es6i_export) {
 });
 es6i.define('widgets/textarea', function (es6i_export) {
 });
-{
-    var messageBox, confirmDialog;
-    (function (es6i_import) {
-        messageBox = es6i_import.messageBox;
-        confirmDialog = es6i_import.confirmDialog;
-    }(es6i.modules['widgets/alert']()));
-}
+var messageBox, confirmDialog;
+(function (es6i_import) {
+    messageBox = es6i_import.messageBox;
+    confirmDialog = es6i_import.confirmDialog;
+}(es6i.modules['widgets/alert']()));
 var JSON = es6i.modules['http://json.org/modules/json2.js']();
 alert(JSON.stringify({ 'hi': 'world' }));
 var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js']();
@@ -99,16 +95,14 @@ es6i.define('Odd', function (es6i_export) {
     };
 });
 es6i.define('DOMMunger', function (es6i_export) {
-    {
-        function make(domAPI) {
-            return {
-                munge: function (doc) {
-                    domAPI.alert('hi!');
-                }
-            };
-        }
-        es6i_export.make = make;
+    function make(domAPI) {
+        return {
+            munge: function (doc) {
+                domAPI.alert('hi!');
+            }
+        };
     }
+    es6i_export.make = make;
 });
 es6i.define('SafeDOM', function (es6i_export) {
     var alert = es6i.modules['DOM']().alert;
@@ -123,35 +117,27 @@ var SafeDOM = es6i.modules['SafeDOM']();
 var instance = DOMMunger.make(SafeDOM);
 es6i.define('counter', function (es6i_export) {
     var n = 0;
-    {
-        function increment() {
-            return n++;
-        }
-        es6i_export.increment = increment;
+    function increment() {
+        return n++;
     }
-    {
-        function current() {
-            return n;
-        }
-        es6i_export.current = current;
+    es6i_export.increment = increment;
+    function current() {
+        return n;
     }
+    es6i_export.current = current;
 });
-{
-    var open, close;
-    (function (es6i_import) {
-        open = es6i_import.open;
-        close = es6i_import.close;
-    }(es6i.modules['io/File']()));
-}
-{
-    function scan(folder) {
-        try {
-            var h = open(folder);
-        } finally {
-            close(h);
-        }
+var open, close;
+(function (es6i_import) {
+    open = es6i_import.open;
+    close = es6i_import.close;
+}(es6i.modules['io/File']()));
+function scan(folder) {
+    try {
+        var h = open(folder);
+    } finally {
+        close(h);
     }
-    es6i_export.scan = scan;
 }
+es6i_export.scan = scan;
 var lexer = es6i.modules['compiler/Lexer']();
 var shell = es6i.modules['shell']();

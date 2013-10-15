@@ -288,7 +288,7 @@ handlers.ModuleDeclaration = function () {
 	};
 };
 
-handlers.BlockStatement = function () {
+handlers.Program = handlers.BlockStatement = function () {
 	this.body = this.body.reduce(function (body, statement) {
 		return body.concat(statement.type === 'BlockStatement' ? statement.body : [statement]);
 	}, []);
@@ -296,15 +296,15 @@ handlers.BlockStatement = function () {
 };
 
 function traverse(node) {
-	if (node.type in handlers) {
-		node = handlers[node.type].call(node);
-	}
-
 	for (var subIndex in node) {
 		var subNode = node[subIndex];
 		if (typeof subNode === 'object' && subNode != null) {
 			node[subIndex] = traverse(subNode);
 		}
+	}
+
+	if (node.type in handlers) {
+		node = handlers[node.type].call(node);
 	}
 
 	return node;
