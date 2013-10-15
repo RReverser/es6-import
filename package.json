@@ -1,35 +1,29 @@
 {
-  "name": "es6-import",
-  "version": "1.0.0",
-  "description": "Module builder for ES6-based import/export syntax",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "esprima": "git://github.com/ariya/esprima.git#harmony",
-    "escodegen": "0.0.27",
-    "estraverse": "~1.3.1",
-    "esmangle": "0.0.15"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/RReverser/es6-import.git"
-  },
-  "keywords": [
-    "modules",
-    "es6",
-    "transpiler",
-    "builder",
-    "concat"
-  ],
-  "author": "Ingvar Stepanyan <me@rreverser.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RReverser/es6-import/issues"
-  }
+	"name": "es6-import",
+	"version": "1.1.0",
+	"description": "Module builder for ES6-based import/export syntax",
+	"main": "index.js",
+	"dependencies": {
+		"esprima": "git://github.com/ariya/esprima.git#harmony",
+		"escodegen": "0.0.27",
+		"estraverse": "~1.3.1",
+		"esmangle": "0.0.15"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/RReverser/es6-import.git"
+	},
+	"keywords": [
+		"modules",
+		"es6",
+		"transpiler",
+		"builder",
+		"concat"
+	],
+	"author": "Ingvar Stepanyan <me@rreverser.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RReverser/es6-import/issues"
+	}
 }
