@@ -9,7 +9,7 @@ module 'quickExamples' {
 module Math from 'math';
  
 // reify M as an immutable "module instance object"
-alert("2π = " + Math.sum(Math.pi, Math.pi));
+alert("2p = " + Math.sum(Math.pi, Math.pi));
 
 //=== Local renaming ===//
 
@@ -73,7 +73,7 @@ module 'DOMMunger' {
 module 'SafeDOM' {
 	import { alert } from 'DOM';
  
-	export let document = {
+	export var document = {
 		write: function(txt) {
 			alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...')
 		},

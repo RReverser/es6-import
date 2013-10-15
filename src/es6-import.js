@@ -4,37 +4,22 @@ var esprima = require('esprima'),
 	testPath = __dirname + '/../test/',
 	ast = esprima.parse(fs.readFileSync(testPath + 'source.in.js')),
 	helpers_ast = esprima.parse(fs.readFileSync(__dirname + '/helpers.js')),
-	es6i__key = {
-		type: 'Identifier',
-		name: 'es6i__key'
-	},
-	es6i__export = {
-		type: 'Identifier',
-		name: 'export'
-	},
-	es6i__modules = {
-		type: 'Identifier',
-		name: 'es6i__modules'
-	},
-	es6i__define = {
-		type: 'Identifier',
-		name: 'es6i__define'
-	},
-	empty = {
-		type: 'EmptyStatement'
-	},
 	resolvedModules = {};
 
 fs.writeFileSync(testPath + 'source.in.json', JSON.stringify(ast, null, '\t'));
 
-function moduleBySource(src, forDeclaration) {
+function moduleBySource(src) {
 	if (!(src.value in resolvedModules)) {
 		resolvedModules[src.value] = false;
 	}
 
 	return {
 		type: 'MemberExpression',
-		object: es6i__modules,
+		object: {
+			type: 'MemberExpression',
+			object: {type: 'Identifier', name: 'es6i'},
+			property: {type: 'Identifier', name: 'modules'}
+		},
 		computed: true,
 		property: src
 	};
@@ -60,109 +45,209 @@ handlers.ImportDeclaration = function () {
 			callee: moduleBySource(this.source),
 			arguments: []
 		},
-		declarations;
-
-	if (this.kind === 'default') {
-		declarations = [{
-			type: 'VariableDeclarator',
-			id: this.specifiers[0].id,
-			init: module
-		}];
-	} else
-	if (this.specifiers.length === 1) {
-		declarations = [{
-			type: 'VariableDeclarator',
-			id: this.specifiers[0].name || this.specifiers[0].id,
-			init: {
-				type: 'MemberExpression',
-				object: module,
-				property: this.specifiers[0].id
-			}
-		}];
-	} else {
-		declarations = this.specifiers.map(function (specifier) {
-			return {
-				type: 'VariableDeclarator',
-				id: specifier.name || specifier.id,
-				init: {
-					type: 'MemberExpression',
-					object: module,
-					property: specifier.id
+		varDeclaration = {
+			type: 'VariableDeclaration',
+			kind: 'var',
+			declarations: this.specifiers.map(function (specifier) {
+				return {
+					type: 'VariableDeclarator',
+					id: specifier.name || specifier.id,
+					init: {
+						type: 'MemberExpression',
+						object: module,
+						property: specifier.id
+					}
 				}
-			}
-		});
-	}
+			})
+		};
 
-	return {
-		type: 'VariableDeclaration',
-		kind: 'var',
-		declarations: declarations
-	};
+	if (this.specifiers.length === 1) {
+		if (this.kind === 'default') {
+			varDeclaration.declarations[0].init.property = {type: 'Identifier', name: 'es6i_default'};
+		}
+		return varDeclaration;
+	} else {
+		return {
+			type: 'BlockStatement',
+			body: [
+				varDeclaration,
+				{
+					type: 'ExpressionStatement',
+					expression: {
+						type: 'CallExpression',
+						callee: {
+							type: 'FunctionExpression',
+							params: [{type: 'Identifier', name: 'es6i_import'}],
+							body: {
+								type: 'BlockStatement',
+								body: varDeclaration.declarations.map(function (declaration) {
+									var init = declaration.init;
+									declaration.init = undefined;
+									init.object = {type: 'Identifier', name: 'es6i_import'};
+
+									return {
+										type: 'ExpressionStatement',
+										expression: {
+											type: 'AssignmentExpression',
+											left: declaration.id,
+											operator: '=',
+											right: init
+										}
+									};
+								})
+							}
+						},
+						arguments: [module]
+					}
+				}
+			]
+		};
+	}
 };
 
 handlers.ExportDeclaration = function () {
-	var exports = {
-			type: 'BlockStatement',
-			body: []
-		},
-		isDefault = this.default;
-
-	function addExport(value, id) {
-		exports.body.push({
+	if (this.source !== null) {
+		return {
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'CallExpression',
-				callee: es6i__export,
-				arguments: [value].concat(isDefault ? [] : [id])
+				callee: {
+					type: 'FunctionExpression',
+					params: [{type: 'Identifier', name: 'es6i_import'}],
+					body: {
+						type: 'BlockStatement',
+						body:
+							this.specifiers[0].type === 'ExportBatchSpecifier'
+							? [{
+								type: 'ForInStatement',
+								left: {
+									type: 'VariableDeclaration',
+									kind: 'var',
+									declarations: [{
+										type: 'VariableDeclarator',
+										id: {type: 'Identifier', name: 'name'}
+									}]
+								},
+								right: {type: 'Identifier', name: 'es6i_import'},
+								body: {
+									type: 'ExpressionStatement',
+									expression: {
+										type: 'AssignmentExpression',
+										left: {
+											type: 'MemberExpression',
+											object: {type: 'Identifier', name: 'es6i_export'},
+											computed: true,
+											property: {type: 'Identifier', name: 'name'}
+										},
+										operator: '=',
+										right: {
+											type: 'MemberExpression',
+											object: {type: 'Identifier', name: 'es6i_import'},
+											computed: true,
+											property: {type: 'Identifier', name: 'name'}
+										}
+									}
+								}
+							}]
+							: this.specifiers.map(function (specifier) {
+								return {
+									type: 'ExpressionStatement',
+									expression: {
+										type: 'AssignmentExpression',
+										left: {
+											type: 'MemberExpression',
+											object: {type: 'Identifier', name: 'es6i_export'},
+											property: specifier.name || specifier.id
+										},
+										operator: '=',
+										right: {
+											type: 'MemberExpression',
+											object: {type: 'Identifier', name: 'es6i_import'},
+											property: specifier.id
+										}
+									}
+								};
+							})
+					}
+				},
+				arguments: [{
+					type: 'CallExpression',
+					callee: moduleBySource(this.source),
+					arguments: []
+				}]
 			}
-		});
+		};
 	}
 
-	if (this.source !== null) {
-		addExport(
-			{
-				type: 'CallExpression',
-				callee: moduleBySource(this.source),
-				arguments: []
-			},
-			(
-				this.specifiers[0].type === 'ExportBatchSpecifier'
-				? {
-					type: 'Literal',
-					value: null
+	switch (this.declaration.type) {
+		case 'FunctionDeclaration':
+			return {
+				type: 'BlockStatement',
+				body: [
+					this.declaration,
+					{
+						type: 'ExpressionStatement',
+						expression: {
+							type: 'AssignmentExpression',
+							left: {
+								type: 'MemberExpression',
+								object: {type: 'Identifier', name: 'es6i_export'},
+								property: this.declaration.id
+							},
+							operator: '=',
+							right: this.declaration.id
+						}
+					}
+				]
+			};
+
+		case 'FunctionExpression':
+			return {
+				type: 'ExpressionStatement',
+				expression: {
+					type: 'AssignmentExpression',
+					left: {
+						type: 'MemberExpression',
+						object: {type: 'Identifier', name: 'es6i_export'},
+						property: {type: 'Identifier', name: 'es6i_default'}
+					},
+					operator: '=',
+					right: this.declaration
 				}
-				: {
-					type: 'ObjectExpression',
-					properties: this.specifiers.map(function (specifier) {
-						return {
-							type: 'Property',
-							key: id2literal(specifier.name || specifier.id),
-							value: id2literal(specifier.id)
-						};
-					})
+			};
+
+		case 'VariableDeclaration':
+			this.declaration.declarations.forEach(function (declaration) {
+				declaration.init = {
+					type: 'AssignmentExpression',
+					left: {
+						type: 'MemberExpression',
+						object: {type: 'Identifier', name: 'es6i_export'},
+						property: declaration.id
+					},
+					operator: '=',
+					right: declaration.init
+				};
+			});
+			if (this.default) {
+				this.declaration.declarations[0].init.left.property = {type: 'Identifier', name: 'es6i_default'};
+			}
+			return this.declaration;
+
+		default:
+			return {
+				type: 'ExpressionStatement',
+				expression: {
+					type: 'AssignmentExpression',
+					left: {
+						type: 'MemberExpression',
+						object: {type: 'Identifier', name: 'es6i_export'},
+						property: {type: 'Identifier', name: 'es6i_default'}
+					},
+					operator: '=',
+					right: this.declaration
 				}
-			)
-		);
-	} else {
-		switch (this.declaration.type) {
-			case 'FunctionDeclaration':
-				this.declaration.type = 'FunctionExpression';
-
-			case 'FunctionExpression':
-				addExport(this.declaration, id2literal(this.declaration.id));
-				break;
-
-			case 'VariableDeclaration':
-				this.declaration.declarations.forEach(function (declaration) {
-					addExport(declaration.init, id2literal(declaration.id));
-				});
-		}
-	}
-
-	switch (exports.body.length) {
-		case 0:  return empty;
-		case 1:  return exports.body[0];
-		default: return exports;
+			};
 	}
 };
 
@@ -174,7 +259,11 @@ handlers.ModuleDeclaration = function () {
 			declarations: [{
 				type: 'VariableDeclarator',
 				id: this.id,
-				init: moduleBySource(this.source, true)
+				init: {
+					type: 'CallExpression',
+					callee: moduleBySource(this.source),
+					arguments: []
+				}
 			}]
 		};
 	}
@@ -185,14 +274,25 @@ handlers.ModuleDeclaration = function () {
 		type: 'ExpressionStatement',
 		expression: {
 			type: 'CallExpression',
-			callee: es6i__define,
+			callee: {
+				type: 'MemberExpression',
+				object: {type: 'Identifier', name: 'es6i'},
+				property: {type: 'Identifier', name: 'define'}
+			},
 			arguments: [this.id, {
 				type: 'FunctionExpression',
-				params: [es6i__export],
+				params: [{type: 'Identifier', name: 'es6i_export'}],
 				body: this.body
 			}]
 		}
 	};
+};
+
+handlers.BlockStatement = function () {
+	this.body = this.body.reduce(function (body, statement) {
+		return body.concat(statement.type === 'BlockStatement' ? statement.body : [statement]);
+	}, []);
+	return this;
 };
 
 function traverse(node) {

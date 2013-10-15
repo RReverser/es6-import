@@ -156,8 +156,8 @@
 						"operator": "+",
 						"left": {
 							"type": "Literal",
-							"value": "2π = ",
-							"raw": "\"2π = \""
+							"value": "2p = ",
+							"raw": "\"2p = \""
 						},
 						"right": {
 							"type": "CallExpression",
@@ -857,7 +857,7 @@
 									}
 								}
 							],
-							"kind": "let"
+							"kind": "var"
 						},
 						"default": false,
 						"specifiers": null,

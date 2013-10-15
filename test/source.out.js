@@ -1,141 +1,157 @@
-var es6i__modules = {};
-function es6i__define(name, module) {
-    es6i__modules[name] = function () {
-        var exports = {};
-        es6i__modules[name] = function () {
-            return exports;
-        };
-        module(function (value, name) {
-            if (arguments.length > 1) {
-                if (typeof name === 'object') {
-                    if (name === null) {
-                        for (name in value) {
-                            exports[name] = value[name];
-                        }
-                    } else {
-                        var mappings = name;
-                        for (name in mappings) {
-                            exports[name] = value[mappings[name]];
-                        }
-                    }
-                } else {
-                    exports[name] = value;
-                }
-            } else {
-                exports = value;
-            }
-        });
-        return exports;
+var es6i = {
+        cache: {},
+        define: function (name, getter) {
+            es6i.cache[name] = function () {
+                var es6i_export = {};
+                es6i.cache[name] = function () {
+                    return es6i_export;
+                };
+                getter(es6i_export);
+                return es6i_export;
+            };
+        }
     };
-}
-es6i__define('jquery', function (export) {
+es6i.define('jquery', function (es6i_export) {
     '[content from jquery.js goes here]';
 });
-es6i__define('crypto', function (export) {
+es6i.define('crypto', function (es6i_export) {
     '[content from crypto.js goes here]';
 });
-es6i__define('math', function (export) {
+es6i.define('math', function (es6i_export) {
     '[content from math.js goes here]';
 });
-es6i__define('shape', function (export) {
+es6i.define('shape', function (es6i_export) {
     '[content from shape.js goes here]';
 });
-es6i__define('cowboy', function (export) {
+es6i.define('cowboy', function (es6i_export) {
     '[content from cowboy.js goes here]';
 });
-es6i__define('http://json.org/modules/json2.js', function (export) {
+es6i.define('http://json.org/modules/json2.js', function (es6i_export) {
     '[content from http://json.org/modules/json2.js goes here]';
 });
-es6i__define('http://developer.yahoo.com/modules/yui3.js', function (export) {
+es6i.define('http://developer.yahoo.com/modules/yui3.js', function (es6i_export) {
     '[content from http://developer.yahoo.com/modules/yui3.js goes here]';
 });
-es6i__define('DOM', function (export) {
+es6i.define('DOM', function (es6i_export) {
     '[content from DOM.js goes here]';
 });
-es6i__define('io/File', function (export) {
+es6i.define('io/File', function (es6i_export) {
     '[content from io/File.js goes here]';
 });
-es6i__define('compiler/Lexer', function (export) {
+es6i.define('compiler/Lexer', function (es6i_export) {
     '[content from compiler/Lexer.js goes here]';
 });
-es6i__define('shell', function (export) {
+es6i.define('shell', function (es6i_export) {
     '[content from shell.js goes here]';
 });
-es6i__define('quickExamples', function (export) {
-    var $ = es6i__modules['jquery']();
-    var encrypt = es6i__modules['crypto']().encrypt, decrypt = es6i__modules['crypto']().decrypt;
-    var enc = es6i__modules['crypto']().encrypt;
-    export(es6i__modules['crypto'](), null);
-    export(es6i__modules['crypto'](), {
-        'foo': 'foo',
-        'barrrr': 'bar'
-    });
+es6i.define('quickExamples', function (es6i_export) {
+    var $ = es6i.modules['jquery']().es6i_default;
+    {
+        var encrypt, decrypt;
+        (function (es6i_import) {
+            encrypt = es6i_import.encrypt;
+            decrypt = es6i_import.decrypt;
+        }(es6i.modules['crypto']()));
+    }
+    var enc = es6i.modules['crypto']().encrypt;
+    (function (es6i_import) {
+        for (var name in es6i_import)
+            es6i_export[name] = es6i_import[name];
+    }(es6i.modules['crypto']()));
+    (function (es6i_import) {
+        es6i_export.foo = es6i_import.foo;
+        es6i_export.barrrr = es6i_import.bar;
+    }(es6i.modules['crypto']()));
 });
-var Math = es6i__modules['math'];
-alert('2\u03c0 = ' + Math.sum(Math.pi, Math.pi));
-var drawShape = es6i__modules['shape']().draw;
-var drawGun = es6i__modules['cowboy']().draw;
-es6i__define('widgets', function (export) {
+var Math = es6i.modules['math']();
+alert('2p = ' + Math.sum(Math.pi, Math.pi));
+var drawShape = es6i.modules['shape']().draw;
+var drawGun = es6i.modules['cowboy']().draw;
+es6i.define('widgets', function (es6i_export) {
 });
-es6i__define('widgets/button', function (export) {
+es6i.define('widgets/button', function (es6i_export) {
 });
-es6i__define('widgets/alert', function (export) {
+es6i.define('widgets/alert', function (es6i_export) {
 });
-es6i__define('widgets/textarea', function (export) {
+es6i.define('widgets/textarea', function (es6i_export) {
 });
-var messageBox = es6i__modules['widgets/alert']().messageBox, confirmDialog = es6i__modules['widgets/alert']().confirmDialog;
-var JSON = es6i__modules['http://json.org/modules/json2.js'];
+{
+    var messageBox, confirmDialog;
+    (function (es6i_import) {
+        messageBox = es6i_import.messageBox;
+        confirmDialog = es6i_import.confirmDialog;
+    }(es6i.modules['widgets/alert']()));
+}
+var JSON = es6i.modules['http://json.org/modules/json2.js']();
 alert(JSON.stringify({ 'hi': 'world' }));
-var YUI = es6i__modules['http://developer.yahoo.com/modules/yui3.js'];
+var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js']();
 alert(YUI.dom.Color.toHex('blue'));
-es6i__define('Even', function (export) {
-    var odd = es6i__modules['Odd']();
-    export(function even(n) {
+es6i.define('Even', function (es6i_export) {
+    var odd = es6i.modules['Odd']().es6i_default;
+    es6i_export.es6i_default = function even(n) {
         return n == 0 || odd(n - 1);
-    });
+    };
 });
-es6i__define('Odd', function (export) {
-    var even = es6i__modules['Even']();
-    export(function odd(n) {
+es6i.define('Odd', function (es6i_export) {
+    var even = es6i.modules['Even']().es6i_default;
+    es6i_export.es6i_default = function odd(n) {
         return n != 0 && even(n - 1);
-    });
+    };
 });
-es6i__define('DOMMunger', function (export) {
-    export(function make(domAPI) {
-        return {
-            munge: function (doc) {
-                domAPI.alert('hi!');
+es6i.define('DOMMunger', function (es6i_export) {
+    {
+        function make(domAPI) {
+            return {
+                munge: function (doc) {
+                    domAPI.alert('hi!');
+                }
+            };
+        }
+        es6i_export.make = make;
+    }
+});
+es6i.define('SafeDOM', function (es6i_export) {
+    var alert = es6i.modules['DOM']().alert;
+    var document = es6i_export.document = {
+            write: function (txt) {
+                alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...');
             }
         };
-    }, 'make');
 });
-es6i__define('SafeDOM', function (export) {
-    var alert = es6i__modules['DOM']().alert;
-    export({
-        write: function (txt) {
-            alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...');
-        }
-    }, 'document');
-});
-var DOMMunger = es6i__modules['DOMMunger'];
-var SafeDOM = es6i__modules['SafeDOM'];
+var DOMMunger = es6i.modules['DOMMunger']();
+var SafeDOM = es6i.modules['SafeDOM']();
 var instance = DOMMunger.make(SafeDOM);
-es6i__define('counter', function (export) {
+es6i.define('counter', function (es6i_export) {
     var n = 0;
-    export(function increment() {
-        return n++;
-    }, 'increment');
-    export(function current() {
-        return n;
-    }, 'current');
-});
-var open = es6i__modules['io/File']().open, close = es6i__modules['io/File']().close;
-export(function scan(folder) {
-    try {
-        var h = open(folder);
-    } finally {
-        close(h);
+    {
+        function increment() {
+            return n++;
+        }
+        es6i_export.increment = increment;
     }
-}, 'scan');
-var lexer = es6i__modules['compiler/Lexer'];
-var shell = es6i__modules['shell'];
+    {
+        function current() {
+            return n;
+        }
+        es6i_export.current = current;
+    }
+});
+{
+    var open, close;
+    (function (es6i_import) {
+        open = es6i_import.open;
+        close = es6i_import.close;
+    }(es6i.modules['io/File']()));
+}
+{
+    function scan(folder) {
+        try {
+            var h = open(folder);
+        } finally {
+            close(h);
+        }
+    }
+    es6i_export.scan = scan;
+}
+var lexer = es6i.modules['compiler/Lexer']();
+var shell = es6i.modules['shell']();
