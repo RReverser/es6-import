@@ -25,11 +25,6 @@ function moduleBySource(src) {
 	};
 }
 
-function resolveModule(src) {
-	resolvedModules[src.value] = true;
-	return src;
-}
-
 function id2literal(id) {
 	return {
 		type: 'Literal',
@@ -105,7 +100,7 @@ handlers.ImportDeclaration = function () {
 	}
 };
 
-handlers.ExportDeclaration = function () {
+handlers.ExportDeclaration = function (module) {
 	if (this.source !== null) {
 		return {
 			type: 'ExpressionStatement',
@@ -181,6 +176,8 @@ handlers.ExportDeclaration = function () {
 
 	switch (this.declaration.type) {
 		case 'FunctionDeclaration':
+			module.es6i_names.push(this.declaration.id);
+
 			return {
 				type: 'BlockStatement',
 				body: [
@@ -218,6 +215,8 @@ handlers.ExportDeclaration = function () {
 
 		case 'VariableDeclaration':
 			this.declaration.declarations.forEach(function (declaration) {
+				module.es6i_names.push(declaration.id);
+
 				declaration.init = {
 					type: 'AssignmentExpression',
 					left: {
@@ -229,7 +228,7 @@ handlers.ExportDeclaration = function () {
 					right: declaration.init
 				};
 			});
-			if (this.default) {
+			if (this['default']) {
 				this.declaration.declarations[0].init.left.property = {type: 'Identifier', name: 'es6i_default'};
 			}
 			return this.declaration;
@@ -268,7 +267,7 @@ handlers.ModuleDeclaration = function () {
 		};
 	}
 
-	resolveModule(this.id);
+	resolvedModules[this.id.value] = this.es6i_names;
 
 	return {
 		type: 'ExpressionStatement',
@@ -295,16 +294,25 @@ handlers.Program = handlers.BlockStatement = function () {
 	return this;
 };
 
-function traverse(node) {
+function traverse(node, module) {
+	var oldModule = module;
+
+	if (node.type === 'Program' || node.type === 'ModuleDeclaration') {
+		module = node;
+		module.es6i_names = [];
+	}
+
 	for (var subIndex in node) {
 		var subNode = node[subIndex];
 		if (typeof subNode === 'object' && subNode != null) {
-			node[subIndex] = traverse(subNode);
+			node[subIndex] = traverse(subNode, module);
 		}
 	}
 
+	module = oldModule;
+
 	if (node.type in handlers) {
-		node = handlers[node.type].call(node);
+		node = handlers[node.type].call(node, module);
 	}
 
 	return node;
@@ -345,3 +353,5 @@ ast.body =
 
 fs.writeFileSync(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'));
 fs.writeFileSync(testPath + 'source.out.js', escodegen.generate(ast));
+
+console.log(resolvedModules);

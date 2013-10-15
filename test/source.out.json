@@ -2914,5 +2914,11 @@
 				}
 			]
 		}
+	],
+	"es6i_names": [
+		{
+			"type": "Identifier",
+			"name": "scan"
+		}
 	]
 }
