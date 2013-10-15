@@ -768,24 +768,27 @@
 											"init": {
 												"type": "MemberExpression",
 												"object": {
-													"type": "MemberExpression",
-													"object": {
+													"type": "CallExpression",
+													"callee": {
 														"type": "MemberExpression",
 														"object": {
-															"type": "Identifier",
-															"name": "es6i"
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
 														},
+														"computed": true,
 														"property": {
-															"type": "Identifier",
-															"name": "modules"
+															"type": "Literal",
+															"value": "jquery"
 														}
 													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "jquery",
-														"raw": "\"jquery\""
-													}
+													"arguments": []
 												},
 												"property": {
 													"type": "Identifier",
@@ -879,24 +882,27 @@
 										},
 										"arguments": [
 											{
-												"type": "MemberExpression",
-												"object": {
+												"type": "CallExpression",
+												"callee": {
 													"type": "MemberExpression",
 													"object": {
-														"type": "Identifier",
-														"name": "es6i"
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
 													},
+													"computed": true,
 													"property": {
-														"type": "Identifier",
-														"name": "modules"
+														"type": "Literal",
+														"value": "crypto"
 													}
 												},
-												"computed": true,
-												"property": {
-													"type": "Literal",
-													"value": "crypto",
-													"raw": "\"crypto\""
-												}
+												"arguments": []
 											}
 										]
 									}
@@ -914,24 +920,27 @@
 											"init": {
 												"type": "MemberExpression",
 												"object": {
-													"type": "MemberExpression",
-													"object": {
+													"type": "CallExpression",
+													"callee": {
 														"type": "MemberExpression",
 														"object": {
-															"type": "Identifier",
-															"name": "es6i"
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
 														},
+														"computed": true,
 														"property": {
-															"type": "Identifier",
-															"name": "modules"
+															"type": "Literal",
+															"value": "crypto"
 														}
 													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "crypto",
-														"raw": "\"crypto\""
-													}
+													"arguments": []
 												},
 												"property": {
 													"type": "Identifier",
@@ -947,24 +956,27 @@
 										"type": "CallExpression",
 										"arguments": [
 											{
-												"type": "MemberExpression",
-												"object": {
+												"type": "CallExpression",
+												"callee": {
 													"type": "MemberExpression",
 													"object": {
-														"type": "Identifier",
-														"name": "es6i"
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
 													},
+													"computed": true,
 													"property": {
-														"type": "Identifier",
-														"name": "modules"
+														"type": "Literal",
+														"value": "crypto"
 													}
 												},
-												"computed": true,
-												"property": {
-													"type": "Literal",
-													"value": "crypto",
-													"raw": "\"crypto\""
-												}
+												"arguments": []
 											}
 										],
 										"callee": {
@@ -1040,24 +1052,27 @@
 										"type": "CallExpression",
 										"arguments": [
 											{
-												"type": "MemberExpression",
-												"object": {
+												"type": "CallExpression",
+												"callee": {
 													"type": "MemberExpression",
 													"object": {
-														"type": "Identifier",
-														"name": "es6i"
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
 													},
+													"computed": true,
 													"property": {
-														"type": "Identifier",
-														"name": "modules"
+														"type": "Literal",
+														"value": "crypto"
 													}
 												},
-												"computed": true,
-												"property": {
-													"type": "Literal",
-													"value": "crypto",
-													"raw": "\"crypto\""
-												}
+												"arguments": []
 											}
 										],
 										"callee": {
@@ -1151,24 +1166,27 @@
 						"name": "Math"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "math"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "math",
-							"raw": "'math'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -1248,24 +1266,27 @@
 					"init": {
 						"type": "MemberExpression",
 						"object": {
-							"type": "MemberExpression",
-							"object": {
+							"type": "CallExpression",
+							"callee": {
 								"type": "MemberExpression",
 								"object": {
-									"type": "Identifier",
-									"name": "es6i"
+									"type": "MemberExpression",
+									"object": {
+										"type": "Identifier",
+										"name": "es6i"
+									},
+									"property": {
+										"type": "Identifier",
+										"name": "modules"
+									}
 								},
+								"computed": true,
 								"property": {
-									"type": "Identifier",
-									"name": "modules"
+									"type": "Literal",
+									"value": "shape"
 								}
 							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "shape",
-								"raw": "'shape'"
-							}
+							"arguments": []
 						},
 						"property": {
 							"type": "Identifier",
@@ -1288,24 +1309,27 @@
 					"init": {
 						"type": "MemberExpression",
 						"object": {
-							"type": "MemberExpression",
-							"object": {
+							"type": "CallExpression",
+							"callee": {
 								"type": "MemberExpression",
 								"object": {
-									"type": "Identifier",
-									"name": "es6i"
+									"type": "MemberExpression",
+									"object": {
+										"type": "Identifier",
+										"name": "es6i"
+									},
+									"property": {
+										"type": "Identifier",
+										"name": "modules"
+									}
 								},
+								"computed": true,
 								"property": {
-									"type": "Identifier",
-									"name": "modules"
+									"type": "Literal",
+									"value": "cowboy"
 								}
 							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "cowboy",
-								"raw": "'cowboy'"
-							}
+							"arguments": []
 						},
 						"property": {
 							"type": "Identifier",
@@ -1547,24 +1571,27 @@
 				},
 				"arguments": [
 					{
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "widgets/alert"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "widgets/alert",
-							"raw": "'widgets/alert'"
-						}
+						"arguments": []
 					}
 				]
 			}
@@ -1580,24 +1607,27 @@
 						"name": "JSON"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "http://json.org/modules/json2.js"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "http://json.org/modules/json2.js",
-							"raw": "'http://json.org/modules/json2.js'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -1663,24 +1693,27 @@
 						"name": "YUI"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "http://developer.yahoo.com/modules/yui3.js"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "http://developer.yahoo.com/modules/yui3.js",
-							"raw": "'http://developer.yahoo.com/modules/yui3.js'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -1780,24 +1813,27 @@
 											"init": {
 												"type": "MemberExpression",
 												"object": {
-													"type": "MemberExpression",
-													"object": {
+													"type": "CallExpression",
+													"callee": {
 														"type": "MemberExpression",
 														"object": {
-															"type": "Identifier",
-															"name": "es6i"
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
 														},
+														"computed": true,
 														"property": {
-															"type": "Identifier",
-															"name": "modules"
+															"type": "Literal",
+															"value": "Odd"
 														}
 													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "Odd",
-														"raw": "'Odd'"
-													}
+													"arguments": []
 												},
 												"property": {
 													"type": "Identifier",
@@ -1940,24 +1976,27 @@
 											"init": {
 												"type": "MemberExpression",
 												"object": {
-													"type": "MemberExpression",
-													"object": {
+													"type": "CallExpression",
+													"callee": {
 														"type": "MemberExpression",
 														"object": {
-															"type": "Identifier",
-															"name": "es6i"
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
 														},
+														"computed": true,
 														"property": {
-															"type": "Identifier",
-															"name": "modules"
+															"type": "Literal",
+															"value": "Even"
 														}
 													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "Even",
-														"raw": "'Even'"
-													}
+													"arguments": []
 												},
 												"property": {
 													"type": "Identifier",
@@ -2126,24 +2165,27 @@
 										"type": "CallExpression",
 										"arguments": [
 											{
-												"type": "MemberExpression",
-												"object": {
+												"type": "CallExpression",
+												"callee": {
 													"type": "MemberExpression",
 													"object": {
-														"type": "Identifier",
-														"name": "es6i"
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
 													},
+													"computed": true,
 													"property": {
-														"type": "Identifier",
-														"name": "modules"
+														"type": "Literal",
+														"value": "SafeDOM"
 													}
 												},
-												"computed": true,
-												"property": {
-													"type": "Literal",
-													"value": "SafeDOM",
-													"raw": "'SafeDOM'"
-												}
+												"arguments": []
 											}
 										],
 										"callee": {
@@ -2408,24 +2450,27 @@
 											"init": {
 												"type": "MemberExpression",
 												"object": {
-													"type": "MemberExpression",
-													"object": {
+													"type": "CallExpression",
+													"callee": {
 														"type": "MemberExpression",
 														"object": {
-															"type": "Identifier",
-															"name": "es6i"
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
 														},
+														"computed": true,
 														"property": {
-															"type": "Identifier",
-															"name": "modules"
+															"type": "Literal",
+															"value": "DOM"
 														}
 													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "DOM",
-														"raw": "'DOM'"
-													}
+													"arguments": []
 												},
 												"property": {
 													"type": "Identifier",
@@ -2520,24 +2565,27 @@
 										"type": "CallExpression",
 										"arguments": [
 											{
-												"type": "MemberExpression",
-												"object": {
+												"type": "CallExpression",
+												"callee": {
 													"type": "MemberExpression",
 													"object": {
-														"type": "Identifier",
-														"name": "es6i"
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
 													},
+													"computed": true,
 													"property": {
-														"type": "Identifier",
-														"name": "modules"
+														"type": "Literal",
+														"value": "SafeDOMWrapper"
 													}
 												},
-												"computed": true,
-												"property": {
-													"type": "Literal",
-													"value": "SafeDOMWrapper",
-													"raw": "'SafeDOMWrapper'"
-												}
+												"arguments": []
 											}
 										],
 										"callee": {
@@ -2624,24 +2672,27 @@
 						"name": "DOMMunger"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "DOMMunger"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "DOMMunger",
-							"raw": "'DOMMunger'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -2657,24 +2708,27 @@
 						"name": "SafeDOM"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "SafeDOM"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "SafeDOM",
-							"raw": "'SafeDOM'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -2950,24 +3004,27 @@
 				},
 				"arguments": [
 					{
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "io/File"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "io/File",
-							"raw": "'io/File'"
-						}
+						"arguments": []
 					}
 				]
 			}
@@ -2983,24 +3040,27 @@
 						"name": "lexer"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "compiler/Lexer"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "compiler/Lexer",
-							"raw": "'compiler/Lexer'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -3016,24 +3076,27 @@
 						"name": "shell"
 					},
 					"init": {
-						"type": "MemberExpression",
-						"object": {
+						"type": "CallExpression",
+						"callee": {
 							"type": "MemberExpression",
 							"object": {
-								"type": "Identifier",
-								"name": "es6i"
+								"type": "MemberExpression",
+								"object": {
+									"type": "Identifier",
+									"name": "es6i"
+								},
+								"property": {
+									"type": "Identifier",
+									"name": "modules"
+								}
 							},
+							"computed": true,
 							"property": {
-								"type": "Identifier",
-								"name": "modules"
+								"type": "Literal",
+								"value": "shell"
 							}
 						},
-						"computed": true,
-						"property": {
-							"type": "Literal",
-							"value": "shell",
-							"raw": "'shell'"
-						}
+						"arguments": []
 					}
 				}
 			]
@@ -3041,24 +3104,27 @@
 		{
 			"type": "ExpressionStatement",
 			"expression": {
-				"type": "MemberExpression",
-				"object": {
+				"type": "CallExpression",
+				"callee": {
 					"type": "MemberExpression",
 					"object": {
-						"type": "Identifier",
-						"name": "es6i"
+						"type": "MemberExpression",
+						"object": {
+							"type": "Identifier",
+							"name": "es6i"
+						},
+						"property": {
+							"type": "Identifier",
+							"name": "modules"
+						}
 					},
+					"computed": true,
 					"property": {
-						"type": "Identifier",
-						"name": "modules"
+						"type": "Literal",
+						"value": "module"
 					}
 				},
-				"computed": true,
-				"property": {
-					"type": "Literal",
-					"value": "module",
-					"raw": "'module'"
-				}
+				"arguments": []
 			}
 		}
 	]

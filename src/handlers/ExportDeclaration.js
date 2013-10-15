@@ -17,7 +17,7 @@ exports.out = function () {
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'CallExpression',
-				arguments: [tracker.expr(this.source)],
+				arguments: [tracker.get(this.source).toExpression()],
 				callee: {
 					type: 'FunctionExpression',
 					params: [refs.es6i_import],

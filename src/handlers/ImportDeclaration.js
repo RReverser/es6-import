@@ -2,7 +2,7 @@ var tracker = require('../tracker'),
 	refs = require('../refs');
 
 exports.out = function () {
-	var module = tracker.expr(this.source);
+	var module = tracker.get(this.source).toExpression();
 
 	if (this.specifiers.length === 0) {
 		return {

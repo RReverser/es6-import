@@ -13,7 +13,7 @@ exports.out = function () {
 			declarations: [{
 				type: 'VariableDeclarator',
 				id: this.id,
-				init: tracker.expr(this.source)
+				init: tracker.get(this.source).toExpression()
 			}]
 		};
 	}

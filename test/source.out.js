@@ -48,26 +48,26 @@ es6i.define('module', function (es6i_export) {
     '[content from module.js goes here]';
 });
 es6i.define('quickExamples', function (es6i_export) {
-    var $ = es6i.modules['jquery'].es6i_default;
+    var $ = es6i.modules['jquery']().es6i_default;
     var encrypt, decrypt;
     (function (es6i_import) {
         encrypt = es6i_import.encrypt;
         decrypt = es6i_import.decrypt;
-    }(es6i.modules['crypto']));
-    var enc = es6i.modules['crypto'].encrypt;
+    }(es6i.modules['crypto']()));
+    var enc = es6i.modules['crypto']().encrypt;
     (function (es6i_import) {
         for (var name in es6i_import)
             es6i_export[name] = es6i_import[name];
-    }(es6i.modules['crypto']));
+    }(es6i.modules['crypto']()));
     (function (es6i_import) {
         es6i_export.foo = es6i_import.foo;
         es6i_export.barrrr = es6i_import.bar;
-    }(es6i.modules['crypto']));
+    }(es6i.modules['crypto']()));
 });
-var Math = es6i.modules['math'];
+var Math = es6i.modules['math']();
 alert('2p = ' + Math.sum(Math.pi, Math.pi));
-var drawShape = es6i.modules['shape'].draw;
-var drawGun = es6i.modules['cowboy'].draw;
+var drawShape = es6i.modules['shape']().draw;
+var drawGun = es6i.modules['cowboy']().draw;
 es6i.define('widgets', function (es6i_export) {
 });
 es6i.define('widgets/button', function (es6i_export) {
@@ -80,19 +80,19 @@ var messageBox, confirmDialog;
 (function (es6i_import) {
     messageBox = es6i_import.messageBox;
     confirmDialog = es6i_import.confirmDialog;
-}(es6i.modules['widgets/alert']));
-var JSON = es6i.modules['http://json.org/modules/json2.js'];
+}(es6i.modules['widgets/alert']()));
+var JSON = es6i.modules['http://json.org/modules/json2.js']();
 alert(JSON.stringify({ 'hi': 'world' }));
-var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js'];
+var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js']();
 alert(YUI.dom.Color.toHex('blue'));
 es6i.define('Even', function (es6i_export) {
-    var odd = es6i.modules['Odd'].es6i_default;
+    var odd = es6i.modules['Odd']().es6i_default;
     es6i_export.es6i_default = function even(n) {
         return n == 0 || odd(n - 1);
     };
 });
 es6i.define('Odd', function (es6i_export) {
-    var even = es6i.modules['Even'].es6i_default;
+    var even = es6i.modules['Even']().es6i_default;
     es6i_export.es6i_default = function odd(n) {
         return n != 0 && even(n - 1);
     };
@@ -102,7 +102,7 @@ es6i.define('SafeDOMWrapper', function (es6i_export) {
     (function (es6i_import) {
         for (var name in es6i_import)
             es6i_export[name] = es6i_import[name];
-    }(es6i.modules['SafeDOM']));
+    }(es6i.modules['SafeDOM']()));
 });
 es6i.define('DOMMunger', function (es6i_export) {
     function make(domAPI) {
@@ -115,7 +115,7 @@ es6i.define('DOMMunger', function (es6i_export) {
     es6i_export.make = make;
 });
 es6i.define('SafeDOM', function (es6i_export) {
-    var alert = es6i.modules['DOM'].alert;
+    var alert = es6i.modules['DOM']().alert;
     var document = es6i_export.document = {
             write: function (txt) {
                 alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...');
@@ -124,10 +124,10 @@ es6i.define('SafeDOM', function (es6i_export) {
     (function (es6i_import) {
         for (var name in es6i_import)
             es6i_export[name] = es6i_import[name];
-    }(es6i.modules['SafeDOMWrapper']));
+    }(es6i.modules['SafeDOMWrapper']()));
 });
-var DOMMunger = es6i.modules['DOMMunger'];
-var SafeDOM = es6i.modules['SafeDOM'];
+var DOMMunger = es6i.modules['DOMMunger']();
+var SafeDOM = es6i.modules['SafeDOM']();
 var instance = DOMMunger.make(SafeDOM);
 es6i.define('counter', function (es6i_export) {
     var n = 0;
@@ -144,7 +144,7 @@ var open, close;
 (function (es6i_import) {
     open = es6i_import.open;
     close = es6i_import.close;
-}(es6i.modules['io/File']));
-var lexer = es6i.modules['compiler/Lexer'];
-var shell = es6i.modules['shell'];
-es6i.modules['module'];
+}(es6i.modules['io/File']()));
+var lexer = es6i.modules['compiler/Lexer']();
+var shell = es6i.modules['shell']();
+es6i.modules['module']();
