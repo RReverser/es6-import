@@ -59,7 +59,7 @@ module 'Odd' {
 
 //=== Static analysis for import * from export * ===//
 
-module 'SafeDOMWRapper' {
+module 'SafeDOMWrapper' {
 	export var isWrapper = true;
 	export * from 'SafeDOM';
 }
@@ -83,8 +83,10 @@ module 'SafeDOM' {
 	export var document = {
 		write: function(txt) {
 			alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...')
-		},
+		}
 	};
+
+	export * from 'SafeDOMWrapper';
 }
 module DOMMunger from 'DOMMunger';
 module SafeDOM from 'SafeDOM';

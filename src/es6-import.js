@@ -4,13 +4,13 @@ var esprima = require('esprima'),
 	testPath = __dirname + '/../test/',
 	ast = esprima.parse(fs.readFileSync(testPath + 'source.in.js')),
 	helpers_ast = esprima.parse(fs.readFileSync(__dirname + '/helpers.js')),
-	resolvedModules = {};
+	modules = {};
 
 fs.writeFileSync(testPath + 'source.in.json', JSON.stringify(ast, null, '\t'));
 
 function moduleBySource(src) {
-	if (!(src.value in resolvedModules)) {
-		resolvedModules[src.value] = false;
+	if (!(src.value in modules)) {
+		modules[src.value] = {isResolved: false};
 	}
 
 	return {
@@ -106,6 +106,11 @@ handlers.ExportDeclaration = function (module) {
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'CallExpression',
+				arguments: [{
+					type: 'CallExpression',
+					callee: moduleBySource(this.source),
+					arguments: []
+				}],
 				callee: {
 					type: 'FunctionExpression',
 					params: [{type: 'Identifier', name: 'es6i_import'}],
@@ -114,7 +119,7 @@ handlers.ExportDeclaration = function (module) {
 						body:
 							this.specifiers[0].type === 'ExportBatchSpecifier'
 							? (
-								module.es6i_names.push(this.source.value),
+								module.es6i_names[this.source.value] = modules[this.source.value],
 								[{
 									type: 'ForInStatement',
 									left: {
@@ -148,7 +153,7 @@ handlers.ExportDeclaration = function (module) {
 								}]
 							)
 							: this.specifiers.map(function (specifier) {
-								module.es6i_names.push(specifier.name || specifier.id);
+								module.es6i_names[(specifier.name || specifier.id).name] = false;
 
 								return {
 									type: 'ExpressionStatement',
@@ -169,19 +174,14 @@ handlers.ExportDeclaration = function (module) {
 								};
 							})
 					}
-				},
-				arguments: [{
-					type: 'CallExpression',
-					callee: moduleBySource(this.source),
-					arguments: []
-				}]
+				}
 			}
 		};
 	}
 
 	switch (this.declaration.type) {
 		case 'FunctionDeclaration':
-			module.es6i_names.push(this.declaration.id);
+			module.es6i_names[this.declaration.id.name] = false;
 
 			return {
 				type: 'BlockStatement',
@@ -208,7 +208,7 @@ handlers.ExportDeclaration = function (module) {
 
 			this.declaration.declarations.forEach(function (declaration) {
 				if (!isDefault) {
-					module.es6i_names.push(declaration.id);
+					module.es6i_names[declaration.id.name] = false;
 				}
 
 				declaration.init = {
@@ -259,7 +259,9 @@ handlers.ModuleDeclaration = function () {
 		};
 	}
 
-	resolvedModules[this.id.value] = this.es6i_names;
+	var module = modules[this.id.value] || (modules[this.id.value] = {});
+	module.isResolved = true;
+	module.names = this.es6i_names;
 
 	return {
 		type: 'ExpressionStatement',
@@ -291,7 +293,7 @@ function traverse(node, module) {
 
 	if (node.type === 'Program' || node.type === 'ModuleDeclaration') {
 		module = node;
-		module.es6i_names = [];
+		module.es6i_names = {};
 	}
 
 	for (var subIndex in node) {
@@ -315,8 +317,8 @@ traverse(ast);
 ast.body =
 	helpers_ast.body
 	.concat(
-		Object.keys(resolvedModules)
-		.filter(function (name) { return !resolvedModules[name] })
+		Object.keys(modules)
+		.filter(function (name) { return !modules[name].isResolved })
 		.map(function (name) {
 			return traverse({
 				type: 'ModuleDeclaration',
@@ -346,19 +348,26 @@ ast.body =
 fs.writeFileSync(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'));
 fs.writeFileSync(testPath + 'source.out.js', escodegen.generate(ast));
 
-function deepJoin(item) {
-	return item.reduce(function (names, name) {
-		if (typeof name === 'string') {
-			return names.concat(resolvedModules[name]);
-		} else {
-			names.push(name);
-			return names;
+Object.keys(modules).forEach(function cleanupModule(name) {
+	var names = modules[name].names;
+
+	for (var subName in names) {
+		if (names[subName]) {
+			delete names[subName];
+
+			var exportNames = cleanupModule(subName);
+			for (var exportName in exportNames) {
+				names[exportName] = exportNames[exportName];
+			}
 		}
-	}, []);
-}
+	}
 
-for (var name in resolvedModules) {
-	resolvedModules[name] = deepJoin(resolvedModules[name]);
-}
+	return names;
+});
 
-console.log(resolvedModules);
+Object.keys(modules).forEach(function (name) {
+	var module = modules[name];
+	module.names = Object.keys(module.names);
+});
+
+console.log(modules);

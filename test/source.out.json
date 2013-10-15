@@ -913,6 +913,32 @@
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "CallExpression",
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "crypto",
+														"raw": "\"crypto\""
+													}
+												},
+												"arguments": []
+											}
+										],
 										"callee": {
 											"type": "FunctionExpression",
 											"params": [
@@ -977,7 +1003,13 @@
 													}
 												]
 											}
-										},
+										}
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
 										"arguments": [
 											{
 												"type": "CallExpression",
@@ -1003,13 +1035,7 @@
 												},
 												"arguments": []
 											}
-										]
-									}
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
+										],
 										"callee": {
 											"type": "FunctionExpression",
 											"params": [
@@ -1081,33 +1107,7 @@
 													}
 												]
 											}
-										},
-										"arguments": [
-											{
-												"type": "CallExpression",
-												"callee": {
-													"type": "MemberExpression",
-													"object": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "Identifier",
-															"name": "es6i"
-														},
-														"property": {
-															"type": "Identifier",
-															"name": "modules"
-														}
-													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "crypto",
-														"raw": "\"crypto\""
-													}
-												},
-												"arguments": []
-											}
-										]
+										}
 									}
 								}
 							]
@@ -2081,8 +2081,8 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "SafeDOMWRapper",
-						"raw": "'SafeDOMWRapper'"
+						"value": "SafeDOMWrapper",
+						"raw": "'SafeDOMWrapper'"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2132,6 +2132,32 @@
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "CallExpression",
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "SafeDOM",
+														"raw": "'SafeDOM'"
+													}
+												},
+												"arguments": []
+											}
+										],
 										"callee": {
 											"type": "FunctionExpression",
 											"params": [
@@ -2196,33 +2222,7 @@
 													}
 												]
 											}
-										},
-										"arguments": [
-											{
-												"type": "CallExpression",
-												"callee": {
-													"type": "MemberExpression",
-													"object": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "Identifier",
-															"name": "es6i"
-														},
-														"property": {
-															"type": "Identifier",
-															"name": "modules"
-														}
-													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "SafeDOM",
-														"raw": "'SafeDOM'"
-													}
-												},
-												"arguments": []
-											}
-										]
+										}
 									}
 								}
 							]
@@ -2534,6 +2534,32 @@
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "CallExpression",
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "SafeDOMWrapper",
+														"raw": "'SafeDOMWrapper'"
+													}
+												},
+												"arguments": []
+											}
+										],
 										"callee": {
 											"type": "FunctionExpression",
 											"params": [
@@ -2598,33 +2624,7 @@
 													}
 												]
 											}
-										},
-										"arguments": [
-											{
-												"type": "CallExpression",
-												"callee": {
-													"type": "MemberExpression",
-													"object": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "Identifier",
-															"name": "es6i"
-														},
-														"property": {
-															"type": "Identifier",
-															"name": "modules"
-														}
-													},
-													"computed": true,
-													"property": {
-														"type": "Literal",
-														"value": "SafeDOMWRapper",
-														"raw": "'SafeDOMWRapper'"
-													}
-												},
-												"arguments": []
-											}
-										]
+										}
 									}
 								}
 							]
@@ -3180,10 +3180,7 @@
 			]
 		}
 	],
-	"es6i_names": [
-		{
-			"type": "Identifier",
-			"name": "scan"
-		}
-	]
+	"es6i_names": {
+		"scan": false
+	}
 }

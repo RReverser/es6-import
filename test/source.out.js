@@ -94,7 +94,7 @@ es6i.define('Odd', function (es6i_export) {
         return n != 0 && even(n - 1);
     };
 });
-es6i.define('SafeDOMWRapper', function (es6i_export) {
+es6i.define('SafeDOMWrapper', function (es6i_export) {
     var isWrapper = es6i_export.isWrapper = true;
     (function (es6i_import) {
         for (var name in es6i_import)
@@ -121,7 +121,7 @@ es6i.define('SafeDOM', function (es6i_export) {
     (function (es6i_import) {
         for (var name in es6i_import)
             es6i_export[name] = es6i_import[name];
-    }(es6i.modules['SafeDOMWRapper']()));
+    }(es6i.modules['SafeDOMWrapper']()));
 });
 var DOMMunger = es6i.modules['DOMMunger']();
 var SafeDOM = es6i.modules['SafeDOM']();

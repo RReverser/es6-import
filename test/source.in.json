@@ -663,8 +663,8 @@
 			"type": "ModuleDeclaration",
 			"id": {
 				"type": "Literal",
-				"value": "SafeDOMWRapper",
-				"raw": "'SafeDOMWRapper'"
+				"value": "SafeDOMWrapper",
+				"raw": "'SafeDOMWrapper'"
 			},
 			"source": null,
 			"body": {
@@ -927,8 +927,8 @@
 						],
 						"source": {
 							"type": "Literal",
-							"value": "SafeDOMWRapper",
-							"raw": "'SafeDOMWRapper'"
+							"value": "SafeDOMWrapper",
+							"raw": "'SafeDOMWrapper'"
 						}
 					}
 				]
