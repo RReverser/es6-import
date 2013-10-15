@@ -113,38 +113,43 @@ handlers.ExportDeclaration = function (module) {
 						type: 'BlockStatement',
 						body:
 							this.specifiers[0].type === 'ExportBatchSpecifier'
-							? [{
-								type: 'ForInStatement',
-								left: {
-									type: 'VariableDeclaration',
-									kind: 'var',
-									declarations: [{
-										type: 'VariableDeclarator',
-										id: {type: 'Identifier', name: 'name'}
-									}]
-								},
-								right: {type: 'Identifier', name: 'es6i_import'},
-								body: {
-									type: 'ExpressionStatement',
-									expression: {
-										type: 'AssignmentExpression',
-										left: {
-											type: 'MemberExpression',
-											object: {type: 'Identifier', name: 'es6i_export'},
-											computed: true,
-											property: {type: 'Identifier', name: 'name'}
-										},
-										operator: '=',
-										right: {
-											type: 'MemberExpression',
-											object: {type: 'Identifier', name: 'es6i_import'},
-											computed: true,
-											property: {type: 'Identifier', name: 'name'}
+							? (
+								module.es6i_names.push(this.source.value),
+								[{
+									type: 'ForInStatement',
+									left: {
+										type: 'VariableDeclaration',
+										kind: 'var',
+										declarations: [{
+											type: 'VariableDeclarator',
+											id: {type: 'Identifier', name: 'name'}
+										}]
+									},
+									right: {type: 'Identifier', name: 'es6i_import'},
+									body: {
+										type: 'ExpressionStatement',
+										expression: {
+											type: 'AssignmentExpression',
+											left: {
+												type: 'MemberExpression',
+												object: {type: 'Identifier', name: 'es6i_export'},
+												computed: true,
+												property: {type: 'Identifier', name: 'name'}
+											},
+											operator: '=',
+											right: {
+												type: 'MemberExpression',
+												object: {type: 'Identifier', name: 'es6i_import'},
+												computed: true,
+												property: {type: 'Identifier', name: 'name'}
+											}
 										}
 									}
-								}
-							}]
+								}]
+							)
 							: this.specifiers.map(function (specifier) {
+								module.es6i_names.push(specifier.name || specifier.id);
+
 								return {
 									type: 'ExpressionStatement',
 									expression: {
@@ -198,39 +203,26 @@ handlers.ExportDeclaration = function (module) {
 				]
 			};
 
-		case 'FunctionExpression':
-			return {
-				type: 'ExpressionStatement',
-				expression: {
-					type: 'AssignmentExpression',
-					left: {
-						type: 'MemberExpression',
-						object: {type: 'Identifier', name: 'es6i_export'},
-						property: {type: 'Identifier', name: 'es6i_default'}
-					},
-					operator: '=',
-					right: this.declaration
-				}
-			};
-
 		case 'VariableDeclaration':
+			var isDefault = this['default'];
+
 			this.declaration.declarations.forEach(function (declaration) {
-				module.es6i_names.push(declaration.id);
+				if (!isDefault) {
+					module.es6i_names.push(declaration.id);
+				}
 
 				declaration.init = {
 					type: 'AssignmentExpression',
 					left: {
 						type: 'MemberExpression',
 						object: {type: 'Identifier', name: 'es6i_export'},
-						property: declaration.id
+						property: isDefault ? {type: 'Identifier', name: 'es6i_default'} : declaration.id
 					},
 					operator: '=',
 					right: declaration.init
 				};
 			});
-			if (this['default']) {
-				this.declaration.declarations[0].init.left.property = {type: 'Identifier', name: 'es6i_default'};
-			}
+
 			return this.declaration;
 
 		default:
@@ -353,5 +345,20 @@ ast.body =
 
 fs.writeFileSync(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'));
 fs.writeFileSync(testPath + 'source.out.js', escodegen.generate(ast));
+
+function deepJoin(item) {
+	return item.reduce(function (names, name) {
+		if (typeof name === 'string') {
+			return names.concat(resolvedModules[name]);
+		} else {
+			names.push(name);
+			return names;
+		}
+	}, []);
+}
+
+for (var name in resolvedModules) {
+	resolvedModules[name] = deepJoin(resolvedModules[name]);
+}
 
 console.log(resolvedModules);

@@ -94,6 +94,13 @@ es6i.define('Odd', function (es6i_export) {
         return n != 0 && even(n - 1);
     };
 });
+es6i.define('SafeDOMWRapper', function (es6i_export) {
+    var isWrapper = es6i_export.isWrapper = true;
+    (function (es6i_import) {
+        for (var name in es6i_import)
+            es6i_export[name] = es6i_import[name];
+    }(es6i.modules['SafeDOM']()));
+});
 es6i.define('DOMMunger', function (es6i_export) {
     function make(domAPI) {
         return {
@@ -111,6 +118,10 @@ es6i.define('SafeDOM', function (es6i_export) {
                 alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...');
             }
         };
+    (function (es6i_import) {
+        for (var name in es6i_import)
+            es6i_export[name] = es6i_import[name];
+    }(es6i.modules['SafeDOMWRapper']()));
 });
 var DOMMunger = es6i.modules['DOMMunger']();
 var SafeDOM = es6i.modules['SafeDOM']();

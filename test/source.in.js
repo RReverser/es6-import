@@ -48,13 +48,20 @@ module 'Even' {
 		return n == 0 || odd(n - 1);
 	}
 }
- 
+
 // woo-hoo!
 module 'Odd' {
 	import even from 'Even';
 	export default function odd(n) {
 		return n != 0 && even(n - 1);
 	}
+}
+
+//=== Static analysis for import * from export * ===//
+
+module 'SafeDOMWRapper' {
+	export var isWrapper = true;
+	export * from 'SafeDOM';
 }
 
 //=== Parameterization ===//

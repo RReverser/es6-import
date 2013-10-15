@@ -663,6 +663,59 @@
 			"type": "ModuleDeclaration",
 			"id": {
 				"type": "Literal",
+				"value": "SafeDOMWRapper",
+				"raw": "'SafeDOMWRapper'"
+			},
+			"source": null,
+			"body": {
+				"type": "BlockStatement",
+				"body": [
+					{
+						"type": "ExportDeclaration",
+						"declaration": {
+							"type": "VariableDeclaration",
+							"declarations": [
+								{
+									"type": "VariableDeclarator",
+									"id": {
+										"type": "Identifier",
+										"name": "isWrapper"
+									},
+									"init": {
+										"type": "Literal",
+										"value": true,
+										"raw": "true"
+									}
+								}
+							],
+							"kind": "var"
+						},
+						"default": false,
+						"specifiers": null,
+						"source": null
+					},
+					{
+						"type": "ExportDeclaration",
+						"declaration": null,
+						"default": false,
+						"specifiers": [
+							{
+								"type": "ExportBatchSpecifier"
+							}
+						],
+						"source": {
+							"type": "Literal",
+							"value": "SafeDOM",
+							"raw": "'SafeDOM'"
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ModuleDeclaration",
+			"id": {
+				"type": "Literal",
 				"value": "DOMMunger",
 				"raw": "'DOMMunger'"
 			},
@@ -862,6 +915,21 @@
 						"default": false,
 						"specifiers": null,
 						"source": null
+					},
+					{
+						"type": "ExportDeclaration",
+						"declaration": null,
+						"default": false,
+						"specifiers": [
+							{
+								"type": "ExportBatchSpecifier"
+							}
+						],
+						"source": {
+							"type": "Literal",
+							"value": "SafeDOMWRapper",
+							"raw": "'SafeDOMWRapper'"
+						}
 					}
 				]
 			}
