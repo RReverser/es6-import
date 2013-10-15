@@ -1,6 +1,14 @@
 var handlers = require('./handlers');
 
-module.exports = function traverse(node) {
+module.exports = function traverse(node, parentNode) {
+	Object.defineProperty(node, 'parentNode', {value: parentNode});
+
+	if (node instanceof Array) {
+		return node.map(function (subNode) {
+			return traverse(subNode, parentNode)
+		});
+	}
+
 	var handler = handlers[node.type];
 
 	function trigger(actionName) {
@@ -14,8 +22,7 @@ module.exports = function traverse(node) {
 	for (var subIndex in node) {
 		var subNode = node[subIndex];
 		if (typeof subNode === 'object' && subNode !== null) {
-			Object.defineProperty(subNode, 'parentNode', {value: node});
-			node[subIndex] = traverse(subNode);
+			node[subIndex] = traverse(subNode, node);
 		}
 	}
 
