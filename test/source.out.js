@@ -11,8 +11,11 @@ var es6i = {
             };
         }
     };
-es6i.define('infinity', function (es6i_export) {
-    '[content from infinity.js goes here]';
+es6i.define('external/deep/dive', function (es6i_export) {
+    '[content from external/deep/dive.js goes here]';
+});
+es6i.define('../out_of_matrix', function (es6i_export) {
+    '[content from ../out_of_matrix.js goes here]';
 });
 es6i.define('jquery', function (es6i_export) {
     '[content from jquery.js goes here]';
@@ -48,8 +51,11 @@ es6i.define('shell', function (es6i_export) {
     '[content from shell.js goes here]';
 });
 es6i.define('external/world', function (es6i_export) {
-    var answer = es6i.modules['infinity']().es6i_default;
-    es6i_export.es6i_default = answer + 42;
+    var answer = es6i.modules['external/deep/dive']().answer;
+    var realWorldAnswer = es6i.modules['../out_of_matrix']().es6i_default;
+    es6i_export.es6i_default = answer + realWorldAnswer;
+    es6i.define('external/innerModule', function (es6i_export) {
+    });
 });
 function es6i_default() {
 }

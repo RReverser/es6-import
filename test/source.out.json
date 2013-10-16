@@ -213,7 +213,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "infinity"
+						"value": "external/deep/dive"
 					},
 					{
 						"type": "FunctionExpression",
@@ -230,7 +230,51 @@
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "Literal",
-										"value": "[content from infinity.js goes here]"
+										"value": "[content from external/deep/dive.js goes here]"
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "Identifier",
+						"name": "es6i"
+					},
+					"property": {
+						"type": "Identifier",
+						"name": "define"
+					}
+				},
+				"arguments": [
+					{
+						"type": "Literal",
+						"value": "../out_of_matrix"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "es6i_export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "Literal",
+										"value": "[content from ../out_of_matrix.js goes here]"
 									}
 								}
 							]
@@ -784,7 +828,50 @@
 														"computed": true,
 														"property": {
 															"type": "Literal",
-															"value": "infinity"
+															"value": "external/deep/dive"
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "answer"
+												}
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "realWorldAnswer"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "../out_of_matrix"
 														}
 													},
 													"arguments": []
@@ -821,11 +908,46 @@
 												"name": "answer"
 											},
 											"right": {
-												"type": "Literal",
-												"value": 42,
-												"raw": "42"
+												"type": "Identifier",
+												"name": "realWorldAnswer"
 											}
 										}
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "external/innerModule"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": []
+												}
+											}
+										]
 									}
 								}
 							]
@@ -991,8 +1113,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "quickExamples",
-						"raw": "'quickExamples'"
+						"value": "quickExamples"
 					},
 					{
 						"type": "FunctionExpression",
@@ -1607,8 +1728,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "widgets",
-						"raw": "'widgets'"
+						"value": "widgets"
 					},
 					{
 						"type": "FunctionExpression",
@@ -1644,8 +1764,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "widgets/button",
-						"raw": "'widgets/button'"
+						"value": "widgets/button"
 					},
 					{
 						"type": "FunctionExpression",
@@ -1681,8 +1800,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "widgets/alert",
-						"raw": "'widgets/alert'"
+						"value": "widgets/alert"
 					},
 					{
 						"type": "FunctionExpression",
@@ -1718,8 +1836,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "widgets/textarea",
-						"raw": "'widgets/textarea'"
+						"value": "widgets/textarea"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2036,8 +2153,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "Even",
-						"raw": "'Even'"
+						"value": "Even"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2203,8 +2319,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "Odd",
-						"raw": "'Odd'"
+						"value": "Odd"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2370,8 +2485,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "SafeDOMWrapper",
-						"raw": "'SafeDOMWrapper'"
+						"value": "SafeDOMWrapper"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2537,8 +2651,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "DOMMunger",
-						"raw": "'DOMMunger'"
+						"value": "DOMMunger"
 					},
 					{
 						"type": "FunctionExpression",
@@ -2681,8 +2794,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "SafeDOM",
-						"raw": "'SafeDOM'"
+						"value": "SafeDOM"
 					},
 					{
 						"type": "FunctionExpression",
@@ -3043,8 +3155,7 @@
 				"arguments": [
 					{
 						"type": "Literal",
-						"value": "counter",
-						"raw": "'counter'"
+						"value": "counter"
 					},
 					{
 						"type": "FunctionExpression",

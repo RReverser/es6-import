@@ -2,7 +2,10 @@ var tracker = require('../tracker'),
 	refs = require('../refs');
 
 exports.into = function () {
+	if (this.source !== null) return;
+
 	tracker.get(this.id).isResolved = true;
+	tracker.context.into(this.id);
 };
 
 exports.out = function () {
@@ -18,13 +21,18 @@ exports.out = function () {
 		};
 	}
 
+	tracker.context.out();
+
 	return {
 		type: 'ExpressionStatement',
 		expression: {
 			type: 'CallExpression',
 			callee: refs.es6i_define,
 			arguments: [
-				this.id,
+				{
+					type: 'Literal',
+					value: tracker.context.resolve(this.id.value)
+				},
 				{
 					type: 'FunctionExpression',
 					params: [refs.es6i_export],
