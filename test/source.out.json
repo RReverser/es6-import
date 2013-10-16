@@ -724,6 +724,107 @@
 			}
 		},
 		{
+			"type": "FunctionDeclaration",
+			"id": {
+				"type": "Identifier",
+				"name": "scan"
+			},
+			"params": [
+				{
+					"type": "Identifier",
+					"name": "folder"
+				}
+			],
+			"defaults": [],
+			"body": {
+				"type": "BlockStatement",
+				"body": [
+					{
+						"type": "TryStatement",
+						"block": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "VariableDeclaration",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "h"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "Identifier",
+													"name": "open"
+												},
+												"arguments": [
+													{
+														"type": "Identifier",
+														"name": "folder"
+													}
+												]
+											}
+										}
+									],
+									"kind": "var"
+								}
+							]
+						},
+						"guardedHandlers": [],
+						"handlers": [],
+						"finalizer": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "close"
+										},
+										"arguments": [
+											{
+												"type": "Identifier",
+												"name": "h"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"rest": null,
+			"generator": false,
+			"expression": false
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "AssignmentExpression",
+				"left": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "Identifier",
+						"name": "es6i_export"
+					},
+					"property": {
+						"type": "Identifier",
+						"name": "scan"
+					}
+				},
+				"operator": "=",
+				"right": {
+					"type": "Identifier",
+					"name": "scan"
+				}
+			}
+		},
+		{
 			"type": "ExpressionStatement",
 			"expression": {
 				"type": "CallExpression",
@@ -1801,49 +1902,6 @@
 							"type": "BlockStatement",
 							"body": [
 								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "odd"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "Odd"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "es6i_default"
-												}
-											}
-										}
-									]
-								},
-								{
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "AssignmentExpression",
@@ -1924,6 +1982,49 @@
 											"expression": false
 										}
 									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "odd"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "Odd"
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "es6i_default"
+												}
+											}
+										}
+									]
 								}
 							]
 						}
@@ -1963,49 +2064,6 @@
 						"body": {
 							"type": "BlockStatement",
 							"body": [
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "even"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "Even"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "es6i_default"
-												}
-											}
-										}
-									]
-								},
 								{
 									"type": "ExpressionStatement",
 									"expression": {
@@ -2087,6 +2145,49 @@
 											"expression": false
 										}
 									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "even"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "Even"
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "es6i_default"
+												}
+											}
+										}
+									]
 								}
 							]
 						}
@@ -2800,22 +2901,50 @@
 							"type": "BlockStatement",
 							"body": [
 								{
-									"type": "VariableDeclaration",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "n"
-											},
-											"init": {
-												"type": "Literal",
-												"value": 0,
-												"raw": "0"
+									"type": "FunctionDeclaration",
+									"id": {
+										"type": "Identifier",
+										"name": "current"
+									},
+									"params": [],
+									"defaults": [],
+									"body": {
+										"type": "BlockStatement",
+										"body": [
+											{
+												"type": "ReturnStatement",
+												"argument": {
+													"type": "Identifier",
+													"name": "n"
+												}
 											}
+										]
+									},
+									"rest": null,
+									"generator": false,
+									"expression": false
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "AssignmentExpression",
+										"left": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i_export"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "current"
+											}
+										},
+										"operator": "=",
+										"right": {
+											"type": "Identifier",
+											"name": "current"
 										}
-									],
-									"kind": "var"
+									}
 								},
 								{
 									"type": "FunctionDeclaration",
@@ -2869,50 +2998,22 @@
 									}
 								},
 								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "current"
-									},
-									"params": [],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "Identifier",
-													"name": "n"
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
+									"type": "VariableDeclaration",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
 												"type": "Identifier",
-												"name": "es6i_export"
+												"name": "n"
 											},
-											"property": {
-												"type": "Identifier",
-												"name": "current"
+											"init": {
+												"type": "Literal",
+												"value": 0,
+												"raw": "0"
 											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "current"
 										}
-									}
+									],
+									"kind": "var"
 								}
 							]
 						}
@@ -3027,107 +3128,6 @@
 						"arguments": []
 					}
 				]
-			}
-		},
-		{
-			"type": "FunctionDeclaration",
-			"id": {
-				"type": "Identifier",
-				"name": "scan"
-			},
-			"params": [
-				{
-					"type": "Identifier",
-					"name": "folder"
-				}
-			],
-			"defaults": [],
-			"body": {
-				"type": "BlockStatement",
-				"body": [
-					{
-						"type": "TryStatement",
-						"block": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "VariableDeclaration",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "h"
-											},
-											"init": {
-												"type": "CallExpression",
-												"callee": {
-													"type": "Identifier",
-													"name": "open"
-												},
-												"arguments": [
-													{
-														"type": "Identifier",
-														"name": "folder"
-													}
-												]
-											}
-										}
-									],
-									"kind": "var"
-								}
-							]
-						},
-						"guardedHandlers": [],
-						"handlers": [],
-						"finalizer": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
-										"callee": {
-											"type": "Identifier",
-											"name": "close"
-										},
-										"arguments": [
-											{
-												"type": "Identifier",
-												"name": "h"
-											}
-										]
-									}
-								}
-							]
-						}
-					}
-				]
-			},
-			"rest": null,
-			"generator": false,
-			"expression": false
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i_export"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "scan"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "Identifier",
-					"name": "scan"
-				}
 			}
 		},
 		{

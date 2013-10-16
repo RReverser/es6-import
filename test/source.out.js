@@ -47,6 +47,14 @@ es6i.define('shell', function (es6i_export) {
 es6i.define('module', function (es6i_export) {
     '[content from module.js goes here]';
 });
+function scan(folder) {
+    try {
+        var h = open(folder);
+    } finally {
+        close(h);
+    }
+}
+es6i_export.scan = scan;
 es6i.define('quickExamples', function (es6i_export) {
     var $ = es6i.modules['jquery']().es6i_default;
     var encrypt, decrypt;
@@ -86,16 +94,16 @@ alert(JSON.stringify({ 'hi': 'world' }));
 var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js']();
 alert(YUI.dom.Color.toHex('blue'));
 es6i.define('Even', function (es6i_export) {
-    var odd = es6i.modules['Odd']().es6i_default;
     es6i_export.es6i_default = function even(n) {
         return n == 0 || odd(n - 1);
     };
+    var odd = es6i.modules['Odd']().es6i_default;
 });
 es6i.define('Odd', function (es6i_export) {
-    var even = es6i.modules['Even']().es6i_default;
     es6i_export.es6i_default = function odd(n) {
         return n != 0 && even(n - 1);
     };
+    var even = es6i.modules['Even']().es6i_default;
 });
 es6i.define('SafeDOMWrapper', function (es6i_export) {
     var isWrapper = es6i_export.isWrapper = true;
@@ -130,29 +138,21 @@ var DOMMunger = es6i.modules['DOMMunger']();
 var SafeDOM = es6i.modules['SafeDOM']();
 var instance = DOMMunger.make(SafeDOM);
 es6i.define('counter', function (es6i_export) {
-    var n = 0;
-    function increment() {
-        return n++;
-    }
-    es6i_export.increment = increment;
     function current() {
         return n;
     }
     es6i_export.current = current;
+    function increment() {
+        return n++;
+    }
+    es6i_export.increment = increment;
+    var n = 0;
 });
 var open, close;
 (function (es6i_import) {
     open = es6i_import.open;
     close = es6i_import.close;
 }(es6i.modules['io/File']()));
-function scan(folder) {
-    try {
-        var h = open(folder);
-    } finally {
-        close(h);
-    }
-}
-es6i_export.scan = scan;
 var lexer = es6i.modules['compiler/Lexer']();
 var shell = es6i.modules['shell']();
 es6i.modules['module']();
