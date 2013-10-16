@@ -72,6 +72,9 @@ exports.out = function () {
 	}
 
 	switch (this.declaration.type) {
+		case 'FunctionExpression':
+			this.declaration.type = 'FunctionDeclaration';
+
 		case 'FunctionDeclaration':
 			return {
 				type: 'BlockStatement',
@@ -87,7 +90,7 @@ exports.out = function () {
 								property: this.declaration.id
 							},
 							operator: '=',
-							right: this.declaration.id
+							right: isDefault ? refs.es6i_default : this.declaration.id
 						}
 					}
 				]

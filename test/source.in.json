@@ -1231,11 +1231,21 @@
 		},
 		{
 			"type": "ImportDeclaration",
-			"specifiers": [],
+			"specifiers": [
+				{
+					"type": "ImportSpecifier",
+					"id": {
+						"type": "Identifier",
+						"name": "answer"
+					},
+					"name": null
+				}
+			],
+			"kind": "default",
 			"source": {
 				"type": "Literal",
-				"value": "module",
-				"raw": "'module'"
+				"value": "external/world",
+				"raw": "'external/world'"
 			}
 		}
 	]

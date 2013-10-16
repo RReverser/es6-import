@@ -11,6 +11,9 @@ var es6i = {
             };
         }
     };
+es6i.define('infinity', function (es6i_export) {
+    '[content from infinity.js goes here]';
+});
 es6i.define('jquery', function (es6i_export) {
     '[content from jquery.js goes here]';
 });
@@ -44,8 +47,9 @@ es6i.define('compiler/Lexer', function (es6i_export) {
 es6i.define('shell', function (es6i_export) {
     '[content from shell.js goes here]';
 });
-es6i.define('module', function (es6i_export) {
-    '[content from module.js goes here]';
+es6i.define('external/world', function (es6i_export) {
+    var answer = es6i.modules['infinity']().es6i_default;
+    es6i_export.es6i_default = answer + 42;
 });
 function scan(folder) {
     try {
@@ -94,15 +98,17 @@ alert(JSON.stringify({ 'hi': 'world' }));
 var YUI = es6i.modules['http://developer.yahoo.com/modules/yui3.js']();
 alert(YUI.dom.Color.toHex('blue'));
 es6i.define('Even', function (es6i_export) {
-    es6i_export.es6i_default = function even(n) {
+    function even(n) {
         return n == 0 || odd(n - 1);
-    };
+    }
+    es6i_export.even = even;
     var odd = es6i.modules['Odd']().es6i_default;
 });
 es6i.define('Odd', function (es6i_export) {
-    es6i_export.es6i_default = function odd(n) {
+    function odd(n) {
         return n != 0 && even(n - 1);
-    };
+    }
+    es6i_export.odd = odd;
     var even = es6i.modules['Even']().es6i_default;
 });
 es6i.define('SafeDOMWrapper', function (es6i_export) {
@@ -155,4 +161,4 @@ var open, close;
 }(es6i.modules['io/File']()));
 var lexer = es6i.modules['compiler/Lexer']();
 var shell = es6i.modules['shell']();
-es6i.modules['module']();
+var answer = es6i.modules['external/world']().es6i_default;
