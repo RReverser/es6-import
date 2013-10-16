@@ -145,6 +145,14 @@ var open, close;
     open = es6i_import.open;
     close = es6i_import.close;
 }(es6i.modules['io/File']()));
+function scan(folder) {
+    try {
+        var h = open(folder);
+    } finally {
+        close(h);
+    }
+}
+es6i_export.scan = scan;
 var lexer = es6i.modules['compiler/Lexer']();
 var shell = es6i.modules['shell']();
 es6i.modules['module']();

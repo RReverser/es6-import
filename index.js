@@ -48,7 +48,6 @@ ast.body =
 	.concat(ast.body)
 ;
 
-tracker.cleanup();
 console.log(tracker.list());
 
 fs.writeFile(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'), function () {

@@ -3030,6 +3030,107 @@
 			}
 		},
 		{
+			"type": "FunctionDeclaration",
+			"id": {
+				"type": "Identifier",
+				"name": "scan"
+			},
+			"params": [
+				{
+					"type": "Identifier",
+					"name": "folder"
+				}
+			],
+			"defaults": [],
+			"body": {
+				"type": "BlockStatement",
+				"body": [
+					{
+						"type": "TryStatement",
+						"block": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "VariableDeclaration",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "h"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "Identifier",
+													"name": "open"
+												},
+												"arguments": [
+													{
+														"type": "Identifier",
+														"name": "folder"
+													}
+												]
+											}
+										}
+									],
+									"kind": "var"
+								}
+							]
+						},
+						"guardedHandlers": [],
+						"handlers": [],
+						"finalizer": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "close"
+										},
+										"arguments": [
+											{
+												"type": "Identifier",
+												"name": "h"
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"rest": null,
+			"generator": false,
+			"expression": false
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "AssignmentExpression",
+				"left": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "Identifier",
+						"name": "es6i_export"
+					},
+					"property": {
+						"type": "Identifier",
+						"name": "scan"
+					}
+				},
+				"operator": "=",
+				"right": {
+					"type": "Identifier",
+					"name": "scan"
+				}
+			}
+		},
+		{
 			"type": "VariableDeclaration",
 			"kind": "var",
 			"declarations": [

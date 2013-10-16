@@ -1,12 +1,8 @@
 var handlers = require('./handlers');
 
-module.exports = function traverse(node, parentNode) {
-	Object.defineProperty(node, 'parentNode', {value: parentNode});
-
+module.exports = function traverse(node) {
 	if (node instanceof Array) {
-		return node.map(function (subNode) {
-			return traverse(subNode, parentNode)
-		});
+		return node.map(traverse);
 	}
 
 	var handler = handlers[node.type];
