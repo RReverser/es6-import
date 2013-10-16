@@ -48,8 +48,6 @@ while ((unresolvedModules = tracker.list().filter(function (module) { return !mo
 
 ast.body = prependAST.body.concat(ast.body);
 
-console.log(tracker.list());
-
 fs.writeFile(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'), function () {
 	fs.writeFile(testPath + 'source.out.js', escodegen.generate(ast));
 });

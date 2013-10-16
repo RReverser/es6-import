@@ -51,6 +51,9 @@ es6i.define('external/world', function (es6i_export) {
     var answer = es6i.modules['infinity']().es6i_default;
     es6i_export.es6i_default = answer + 42;
 });
+function es6i_default() {
+}
+es6i_export.es6i_default = es6i_default;
 function scan(folder) {
     try {
         var h = open(folder);
@@ -101,14 +104,14 @@ es6i.define('Even', function (es6i_export) {
     function even(n) {
         return n == 0 || odd(n - 1);
     }
-    es6i_export.even = even;
+    es6i_export.even = es6i_default;
     var odd = es6i.modules['Odd']().es6i_default;
 });
 es6i.define('Odd', function (es6i_export) {
     function odd(n) {
         return n != 0 && even(n - 1);
     }
-    es6i_export.odd = odd;
+    es6i_export.odd = es6i_default;
     var even = es6i.modules['Even']().es6i_default;
 });
 es6i.define('SafeDOMWrapper', function (es6i_export) {

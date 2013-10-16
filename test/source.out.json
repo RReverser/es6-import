@@ -838,6 +838,44 @@
 			"type": "FunctionDeclaration",
 			"id": {
 				"type": "Identifier",
+				"name": "es6i_default"
+			},
+			"params": [],
+			"defaults": [],
+			"body": {
+				"type": "BlockStatement",
+				"body": []
+			},
+			"rest": null,
+			"generator": false,
+			"expression": false
+		},
+		{
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "AssignmentExpression",
+				"left": {
+					"type": "MemberExpression",
+					"object": {
+						"type": "Identifier",
+						"name": "es6i_export"
+					},
+					"property": {
+						"type": "Identifier",
+						"name": "es6i_default"
+					}
+				},
+				"operator": "=",
+				"right": {
+					"type": "Identifier",
+					"name": "es6i_default"
+				}
+			}
+		},
+		{
+			"type": "FunctionDeclaration",
+			"id": {
+				"type": "Identifier",
 				"name": "scan"
 			},
 			"params": [
@@ -2094,7 +2132,7 @@
 										"operator": "=",
 										"right": {
 											"type": "Identifier",
-											"name": "even"
+											"name": "es6i_default"
 										}
 									}
 								},
@@ -2261,7 +2299,7 @@
 										"operator": "=",
 										"right": {
 											"type": "Identifier",
-											"name": "odd"
+											"name": "es6i_default"
 										}
 									}
 								},

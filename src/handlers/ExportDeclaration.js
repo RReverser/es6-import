@@ -71,9 +71,14 @@ exports.out = function () {
 		};
 	}
 
+	var isDefault = this['default'];
+
 	switch (this.declaration.type) {
 		case 'FunctionExpression':
 			this.declaration.type = 'FunctionDeclaration';
+			if (!this.declaration.id && isDefault) {
+				this.declaration.id = refs.es6i_default;
+			}
 
 		case 'FunctionDeclaration':
 			return {
@@ -97,8 +102,6 @@ exports.out = function () {
 			};
 
 		case 'VariableDeclaration':
-			var isDefault = this['default'];
-
 			this.declaration.declarations.forEach(function (declaration) {
 				declaration.init = {
 					type: 'AssignmentExpression',
