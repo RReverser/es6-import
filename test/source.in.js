@@ -110,7 +110,5 @@ export function scan(folder) {
 module lexer from 'compiler/Lexer';
 module shell from 'shell';
 
-export default function () {};
-
 import answer from 'external/world';
 

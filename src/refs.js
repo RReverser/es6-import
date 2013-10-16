@@ -17,3 +17,9 @@ refs.es6i_define = {
 	object: refs.es6i,
 	property: {type: 'Identifier', name: 'define'}
 };
+
+refs.es6i_pull = {
+	type: 'MemberExpression',
+	object: refs.es6i,
+	property: {type: 'Identifier', name: 'pull'}
+};

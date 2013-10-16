@@ -1230,25 +1230,6 @@
 			"body": null
 		},
 		{
-			"type": "ExportDeclaration",
-			"declaration": {
-				"type": "FunctionExpression",
-				"id": null,
-				"params": [],
-				"defaults": [],
-				"body": {
-					"type": "BlockStatement",
-					"body": []
-				},
-				"rest": null,
-				"generator": false,
-				"expression": false
-			},
-			"default": true,
-			"specifiers": null,
-			"source": null
-		},
-		{
 			"type": "ImportDeclaration",
 			"specifiers": [
 				{

@@ -9,6 +9,12 @@ var es6i = {
                 getter(es6i_export);
                 return es6i_export;
             };
+        },
+        pull: function (es6i_export, source) {
+            var module = es6i.modules[source]();
+            for (var name in module) {
+                es6i_export[name] = module[name];
+            }
         }
     };
 es6i.define('external/deep/dive', function (es6i_export) {
@@ -57,9 +63,6 @@ es6i.define('external/world', function (es6i_export) {
     es6i.define('external/innerModule', function (es6i_export) {
     });
 });
-function es6i_default() {
-}
-es6i_export.es6i_default = es6i_default;
 function scan(folder) {
     try {
         var h = open(folder);
@@ -76,10 +79,7 @@ es6i.define('quickExamples', function (es6i_export) {
         decrypt = es6i_import.decrypt;
     }(es6i.modules['crypto']()));
     var enc = es6i.modules['crypto']().encrypt;
-    (function (es6i_import) {
-        for (var name in es6i_import)
-            es6i_export[name] = es6i_import[name];
-    }(es6i.modules['crypto']()));
+    es6i.pull(es6i_export, 'crypto');
     (function (es6i_import) {
         es6i_export.foo = es6i_import.foo;
         es6i_export.barrrr = es6i_import.bar;
@@ -122,10 +122,7 @@ es6i.define('Odd', function (es6i_export) {
 });
 es6i.define('SafeDOMWrapper', function (es6i_export) {
     var isWrapper = es6i_export.isWrapper = true;
-    (function (es6i_import) {
-        for (var name in es6i_import)
-            es6i_export[name] = es6i_import[name];
-    }(es6i.modules['SafeDOM']()));
+    es6i.pull(es6i_export, 'SafeDOM');
 });
 es6i.define('DOMMunger', function (es6i_export) {
     function make(domAPI) {
@@ -144,10 +141,7 @@ es6i.define('SafeDOM', function (es6i_export) {
                 alert('I\'m sorry, Dave, I\'m afraid I can\'t do that...');
             }
         };
-    (function (es6i_import) {
-        for (var name in es6i_import)
-            es6i_export[name] = es6i_import[name];
-    }(es6i.modules['SafeDOMWrapper']()));
+    es6i.pull(es6i_export, 'SafeDOMWrapper');
 });
 var DOMMunger = es6i.modules['DOMMunger']();
 var SafeDOM = es6i.modules['SafeDOM']();

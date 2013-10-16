@@ -3,70 +3,56 @@ var refs = require('../refs'),
 
 exports.out = function () {
 	if (this.source !== null) {
+		var module = tracker.get(this.source);
+
+		if (this.specifiers[0].type === 'ExportBatchSpecifier') {
+			return {
+				type: 'ExpressionStatement',
+				expression: {
+					type: 'CallExpression',
+					callee: refs.es6i_pull,
+					arguments: [
+						refs.es6i_export,
+						{
+							type: 'Literal',
+							value: module.id
+						}
+					]
+				}
+			}
+		}
+
 		return {
 			type: 'ExpressionStatement',
 			expression: {
 				type: 'CallExpression',
-				arguments: [tracker.get(this.source).toExpression()],
 				callee: {
 					type: 'FunctionExpression',
 					params: [refs.es6i_import],
 					body: {
 						type: 'BlockStatement',
-						body:
-							this.specifiers[0].type === 'ExportBatchSpecifier'
-							? [{
-								type: 'ForInStatement',
-								left: {
-									type: 'VariableDeclaration',
-									kind: 'var',
-									declarations: [{
-										type: 'VariableDeclarator',
-										id: refs.name
-									}]
-								},
-								right: refs.es6i_import,
-								body: {
-									type: 'ExpressionStatement',
-									expression: {
-										type: 'AssignmentExpression',
-										left: {
-											type: 'MemberExpression',
-											object: refs.es6i_export,
-											computed: true,
-											property: refs.name
-										},
-										operator: '=',
-										right: {
-											type: 'MemberExpression',
-											object: refs.es6i_import,
-											computed: true,
-											property: refs.name
-										}
+						body: this.specifiers.map(function (specifier) {
+							return {
+								type: 'ExpressionStatement',
+								expression: {
+									type: 'AssignmentExpression',
+									left: {
+										type: 'MemberExpression',
+										object: refs.es6i_export,
+										property: specifier.name || specifier.id
+									},
+									operator: '=',
+									right: {
+										type: 'MemberExpression',
+										object: refs.es6i_import,
+										property: specifier.id
 									}
 								}
-							}]
-							: this.specifiers.map(function (specifier) {
-								return {
-									type: 'ExpressionStatement',
-									expression: {
-										type: 'AssignmentExpression',
-										left: {
-											type: 'MemberExpression',
-											object: refs.es6i_export,
-											property: specifier.name || specifier.id
-										},
-										operator: '=',
-										right: {
-											type: 'MemberExpression',
-											object: refs.es6i_import,
-											property: specifier.id
-										}
-									}
-								};
-							})
+							};
+						})
 					}
-				}
+				},
+				arguments: [module.toExpression()]
 			}
 		};
 	}
