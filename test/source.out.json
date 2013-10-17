@@ -2,1015 +2,1337 @@
 	"type": "Program",
 	"body": [
 		{
-			"type": "VariableDeclaration",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"init": {
-						"type": "ObjectExpression",
-						"properties": [
+			"type": "ExpressionStatement",
+			"expression": {
+				"type": "CallExpression",
+				"callee": {
+					"type": "FunctionExpression",
+					"id": null,
+					"params": [
+						{
+							"type": "Identifier",
+							"name": "root"
+						},
+						{
+							"type": "Identifier",
+							"name": "factory"
+						}
+					],
+					"defaults": [],
+					"body": {
+						"type": "BlockStatement",
+						"body": [
 							{
-								"type": "Property",
-								"key": {
-									"type": "Identifier",
-									"name": "modules"
-								},
-								"value": {
-									"type": "ObjectExpression",
-									"properties": []
-								},
-								"kind": "init",
-								"method": false,
-								"shorthand": false
-							},
-							{
-								"type": "Property",
-								"key": {
-									"type": "Identifier",
-									"name": "define"
-								},
-								"value": {
-									"type": "FunctionExpression",
-									"id": null,
-									"params": [
-										{
-											"type": "Identifier",
-											"name": "name"
+								"type": "IfStatement",
+								"test": {
+									"type": "LogicalExpression",
+									"operator": "&&",
+									"left": {
+										"type": "BinaryExpression",
+										"operator": "===",
+										"left": {
+											"type": "UnaryExpression",
+											"operator": "typeof",
+											"argument": {
+												"type": "Identifier",
+												"name": "define"
+											}
 										},
-										{
-											"type": "Identifier",
-											"name": "getter"
+										"right": {
+											"type": "Literal",
+											"value": "function",
+											"raw": "'function'"
 										}
-									],
-									"defaults": [],
-									"body": {
+									},
+									"right": {
+										"type": "MemberExpression",
+										"computed": false,
+										"object": {
+											"type": "Identifier",
+											"name": "define"
+										},
+										"property": {
+											"type": "Identifier",
+											"name": "amd"
+										}
+									}
+								},
+								"consequent": {
+									"type": "BlockStatement",
+									"body": [
+										{
+											"type": "ExpressionStatement",
+											"expression": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "Identifier",
+													"name": "define"
+												},
+												"arguments": [
+													{
+														"type": "ArrayExpression",
+														"elements": [
+															{
+																"type": "Literal",
+																"value": "exports",
+																"raw": "'exports'"
+															}
+														]
+													},
+													{
+														"type": "Identifier",
+														"name": "factory"
+													}
+												]
+											}
+										}
+									]
+								},
+								"alternate": {
+									"type": "IfStatement",
+									"test": {
+										"type": "BinaryExpression",
+										"operator": "===",
+										"left": {
+											"type": "UnaryExpression",
+											"operator": "typeof",
+											"argument": {
+												"type": "Identifier",
+												"name": "exports"
+											}
+										},
+										"right": {
+											"type": "Literal",
+											"value": "object",
+											"raw": "'object'"
+										}
+									},
+									"consequent": {
 										"type": "BlockStatement",
 										"body": [
 											{
 												"type": "ExpressionStatement",
 												"expression": {
-													"type": "AssignmentExpression",
-													"operator": "=",
-													"left": {
-														"type": "MemberExpression",
-														"computed": true,
-														"object": {
-															"type": "MemberExpression",
-															"computed": false,
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"property": {
-															"type": "Identifier",
-															"name": "name"
-														}
+													"type": "CallExpression",
+													"callee": {
+														"type": "Identifier",
+														"name": "factory"
 													},
-													"right": {
-														"type": "FunctionExpression",
-														"id": null,
-														"params": [],
-														"defaults": [],
-														"body": {
-															"type": "BlockStatement",
-															"body": [
-																{
-																	"type": "VariableDeclaration",
-																	"declarations": [
-																		{
-																			"type": "VariableDeclarator",
-																			"id": {
-																				"type": "Identifier",
-																				"name": "es6i_export"
-																			},
-																			"init": {
-																				"type": "ObjectExpression",
-																				"properties": []
-																			}
-																		}
-																	],
-																	"kind": "var"
-																},
-																{
-																	"type": "ExpressionStatement",
-																	"expression": {
-																		"type": "AssignmentExpression",
-																		"operator": "=",
-																		"left": {
-																			"type": "MemberExpression",
-																			"computed": true,
-																			"object": {
-																				"type": "MemberExpression",
-																				"computed": false,
-																				"object": {
-																					"type": "Identifier",
-																					"name": "es6i"
-																				},
-																				"property": {
-																					"type": "Identifier",
-																					"name": "modules"
-																				}
-																			},
-																			"property": {
-																				"type": "Identifier",
-																				"name": "name"
-																			}
-																		},
-																		"right": {
-																			"type": "FunctionExpression",
-																			"id": null,
-																			"params": [],
-																			"defaults": [],
-																			"body": {
-																				"type": "BlockStatement",
-																				"body": [
-																					{
-																						"type": "ReturnStatement",
-																						"argument": {
-																							"type": "Identifier",
-																							"name": "es6i_export"
-																						}
-																					}
-																				]
-																			},
-																			"rest": null,
-																			"generator": false,
-																			"expression": false
-																		}
-																	}
-																},
-																{
-																	"type": "ExpressionStatement",
-																	"expression": {
-																		"type": "CallExpression",
-																		"callee": {
-																			"type": "Identifier",
-																			"name": "getter"
-																		},
-																		"arguments": [
-																			{
-																				"type": "Identifier",
-																				"name": "es6i_export"
-																			}
-																		]
-																	}
-																},
-																{
-																	"type": "ReturnStatement",
-																	"argument": {
-																		"type": "Identifier",
-																		"name": "es6i_export"
-																	}
-																}
-															]
-														},
-														"rest": null,
-														"generator": false,
-														"expression": false
-													}
+													"arguments": [
+														{
+															"type": "Identifier",
+															"name": "exports"
+														}
+													]
 												}
 											}
 										]
 									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								"kind": "init",
-								"method": false,
-								"shorthand": false
-							},
-							{
-								"type": "Property",
-								"key": {
-									"type": "Identifier",
-									"name": "pull"
-								},
-								"value": {
-									"type": "FunctionExpression",
-									"id": null,
-									"params": [
-										{
-											"type": "Identifier",
-											"name": "es6i_export"
-										},
-										{
-											"type": "Identifier",
-											"name": "source"
-										}
-									],
-									"defaults": [],
-									"body": {
+									"alternate": {
 										"type": "BlockStatement",
 										"body": [
 											{
-												"type": "VariableDeclaration",
-												"declarations": [
-													{
-														"type": "VariableDeclarator",
-														"id": {
+												"type": "ExpressionStatement",
+												"expression": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "Identifier",
+														"name": "factory"
+													},
+													"arguments": [
+														{
 															"type": "Identifier",
-															"name": "module"
+															"name": "root"
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					"rest": null,
+					"generator": false,
+					"expression": false
+				},
+				"arguments": [
+					{
+						"type": "ThisExpression"
+					},
+					{
+						"type": "FunctionExpression",
+						"params": [
+							{
+								"type": "Identifier",
+								"name": "es6i_export"
+							}
+						],
+						"body": {
+							"type": "BlockStatement",
+							"body": [
+								{
+									"type": "VariableDeclaration",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"init": {
+												"type": "ObjectExpression",
+												"properties": [
+													{
+														"type": "Property",
+														"key": {
+															"type": "Identifier",
+															"name": "modules"
 														},
-														"init": {
-															"type": "CallExpression",
-															"callee": {
-																"type": "MemberExpression",
-																"computed": true,
-																"object": {
-																	"type": "MemberExpression",
-																	"computed": false,
-																	"object": {
-																		"type": "Identifier",
-																		"name": "es6i"
-																	},
-																	"property": {
-																		"type": "Identifier",
-																		"name": "modules"
-																	}
+														"value": {
+															"type": "ObjectExpression",
+															"properties": []
+														},
+														"kind": "init",
+														"method": false,
+														"shorthand": false
+													},
+													{
+														"type": "Property",
+														"key": {
+															"type": "Identifier",
+															"name": "define"
+														},
+														"value": {
+															"type": "FunctionExpression",
+															"id": null,
+															"params": [
+																{
+																	"type": "Identifier",
+																	"name": "name"
 																},
-																"property": {
+																{
+																	"type": "Identifier",
+																	"name": "getter"
+																}
+															],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ExpressionStatement",
+																		"expression": {
+																			"type": "AssignmentExpression",
+																			"operator": "=",
+																			"left": {
+																				"type": "MemberExpression",
+																				"computed": true,
+																				"object": {
+																					"type": "MemberExpression",
+																					"computed": false,
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"property": {
+																					"type": "Identifier",
+																					"name": "name"
+																				}
+																			},
+																			"right": {
+																				"type": "FunctionExpression",
+																				"id": null,
+																				"params": [],
+																				"defaults": [],
+																				"body": {
+																					"type": "BlockStatement",
+																					"body": [
+																						{
+																							"type": "VariableDeclaration",
+																							"declarations": [
+																								{
+																									"type": "VariableDeclarator",
+																									"id": {
+																										"type": "Identifier",
+																										"name": "es6i_export"
+																									},
+																									"init": {
+																										"type": "ObjectExpression",
+																										"properties": []
+																									}
+																								}
+																							],
+																							"kind": "var"
+																						},
+																						{
+																							"type": "ExpressionStatement",
+																							"expression": {
+																								"type": "AssignmentExpression",
+																								"operator": "=",
+																								"left": {
+																									"type": "MemberExpression",
+																									"computed": true,
+																									"object": {
+																										"type": "MemberExpression",
+																										"computed": false,
+																										"object": {
+																											"type": "Identifier",
+																											"name": "es6i"
+																										},
+																										"property": {
+																											"type": "Identifier",
+																											"name": "modules"
+																										}
+																									},
+																									"property": {
+																										"type": "Identifier",
+																										"name": "name"
+																									}
+																								},
+																								"right": {
+																									"type": "FunctionExpression",
+																									"id": null,
+																									"params": [],
+																									"defaults": [],
+																									"body": {
+																										"type": "BlockStatement",
+																										"body": [
+																											{
+																												"type": "ReturnStatement",
+																												"argument": {
+																													"type": "Identifier",
+																													"name": "es6i_export"
+																												}
+																											}
+																										]
+																									},
+																									"rest": null,
+																									"generator": false,
+																									"expression": false
+																								}
+																							}
+																						},
+																						{
+																							"type": "ExpressionStatement",
+																							"expression": {
+																								"type": "CallExpression",
+																								"callee": {
+																									"type": "Identifier",
+																									"name": "getter"
+																								},
+																								"arguments": [
+																									{
+																										"type": "Identifier",
+																										"name": "es6i_export"
+																									}
+																								]
+																							}
+																						},
+																						{
+																							"type": "ReturnStatement",
+																							"argument": {
+																								"type": "Identifier",
+																								"name": "es6i_export"
+																							}
+																						}
+																					]
+																				},
+																				"rest": null,
+																				"generator": false,
+																				"expression": false
+																			}
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														"kind": "init",
+														"method": false,
+														"shorthand": false
+													},
+													{
+														"type": "Property",
+														"key": {
+															"type": "Identifier",
+															"name": "pull"
+														},
+														"value": {
+															"type": "FunctionExpression",
+															"id": null,
+															"params": [
+																{
+																	"type": "Identifier",
+																	"name": "es6i_export"
+																},
+																{
 																	"type": "Identifier",
 																	"name": "source"
 																}
+															],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "VariableDeclaration",
+																		"declarations": [
+																			{
+																				"type": "VariableDeclarator",
+																				"id": {
+																					"type": "Identifier",
+																					"name": "module"
+																				},
+																				"init": {
+																					"type": "CallExpression",
+																					"callee": {
+																						"type": "MemberExpression",
+																						"computed": true,
+																						"object": {
+																							"type": "MemberExpression",
+																							"computed": false,
+																							"object": {
+																								"type": "Identifier",
+																								"name": "es6i"
+																							},
+																							"property": {
+																								"type": "Identifier",
+																								"name": "modules"
+																							}
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "source"
+																						}
+																					},
+																					"arguments": []
+																				}
+																			}
+																		],
+																		"kind": "var"
+																	},
+																	{
+																		"type": "ForInStatement",
+																		"left": {
+																			"type": "VariableDeclaration",
+																			"declarations": [
+																				{
+																					"type": "VariableDeclarator",
+																					"id": {
+																						"type": "Identifier",
+																						"name": "name"
+																					},
+																					"init": null
+																				}
+																			],
+																			"kind": "var"
+																		},
+																		"right": {
+																			"type": "Identifier",
+																			"name": "module"
+																		},
+																		"body": {
+																			"type": "BlockStatement",
+																			"body": [
+																				{
+																					"type": "ExpressionStatement",
+																					"expression": {
+																						"type": "AssignmentExpression",
+																						"operator": "=",
+																						"left": {
+																							"type": "MemberExpression",
+																							"computed": true,
+																							"object": {
+																								"type": "Identifier",
+																								"name": "es6i_export"
+																							},
+																							"property": {
+																								"type": "Identifier",
+																								"name": "name"
+																							}
+																						},
+																						"right": {
+																							"type": "MemberExpression",
+																							"computed": true,
+																							"object": {
+																								"type": "Identifier",
+																								"name": "module"
+																							},
+																							"property": {
+																								"type": "Identifier",
+																								"name": "name"
+																							}
+																						}
+																					}
+																				}
+																			]
+																		},
+																		"each": false
+																	}
+																]
 															},
-															"arguments": []
-														}
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														"kind": "init",
+														"method": false,
+														"shorthand": false
 													}
-												],
-												"kind": "var"
+												]
+											}
+										}
+									],
+									"kind": "var"
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "external/deep/dive"
 											},
 											{
-												"type": "ForInStatement",
-												"left": {
-													"type": "VariableDeclaration",
-													"declarations": [
-														{
-															"type": "VariableDeclarator",
-															"id": {
-																"type": "Identifier",
-																"name": "name"
-															},
-															"init": null
-														}
-													],
-													"kind": "var"
-												},
-												"right": {
-													"type": "Identifier",
-													"name": "module"
-												},
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
 												"body": {
 													"type": "BlockStatement",
 													"body": [
 														{
 															"type": "ExpressionStatement",
 															"expression": {
+																"type": "Literal",
+																"value": "[content from external/deep/dive.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "../out_of_matrix"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from ../out_of_matrix.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "jquery"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from jquery.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "crypto"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from crypto.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "math"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from math.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "shape"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from shape.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "cowboy"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from cowboy.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "http://json.org/modules/json2.js"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from http://json.org/modules/json2.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "http://developer.yahoo.com/modules/yui3.js"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from http://developer.yahoo.com/modules/yui3.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "DOM"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from DOM.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "io/File"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from io/File.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "compiler/Lexer"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from compiler/Lexer.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "shell"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "Literal",
+																"value": "[content from shell.js goes here]"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "external/world"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "answer"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "external/deep/dive"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "answer"
+																		}
+																	}
+																}
+															]
+														},
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "realWorldAnswer"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "../out_of_matrix"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "es6i_default"
+																		}
+																	}
+																}
+															]
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
 																"type": "AssignmentExpression",
-																"operator": "=",
 																"left": {
 																	"type": "MemberExpression",
-																	"computed": true,
 																	"object": {
 																		"type": "Identifier",
 																		"name": "es6i_export"
 																	},
 																	"property": {
 																		"type": "Identifier",
-																		"name": "name"
+																		"name": "es6i_default"
 																	}
 																},
+																"operator": "=",
 																"right": {
-																	"type": "MemberExpression",
-																	"computed": true,
-																	"object": {
+																	"type": "BinaryExpression",
+																	"operator": "+",
+																	"left": {
 																		"type": "Identifier",
-																		"name": "module"
+																		"name": "answer"
 																	},
-																	"property": {
+																	"right": {
 																		"type": "Identifier",
-																		"name": "name"
+																		"name": "realWorldAnswer"
 																	}
 																}
 															}
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "define"
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "Literal",
+																		"value": "external/innerModule"
+																	},
+																	{
+																		"type": "FunctionExpression",
+																		"params": [
+																			{
+																				"type": "Identifier",
+																				"name": "es6i_export"
+																			}
+																		],
+																		"body": {
+																			"type": "BlockStatement",
+																			"body": []
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "FunctionDeclaration",
+									"id": {
+										"type": "Identifier",
+										"name": "scan"
+									},
+									"params": [
+										{
+											"type": "Identifier",
+											"name": "folder"
+										}
+									],
+									"defaults": [],
+									"body": {
+										"type": "BlockStatement",
+										"body": [
+											{
+												"type": "TryStatement",
+												"block": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "VariableDeclaration",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "h"
+																	},
+																	"init": {
+																		"type": "CallExpression",
+																		"callee": {
+																			"type": "Identifier",
+																			"name": "open"
+																		},
+																		"arguments": [
+																			{
+																				"type": "Identifier",
+																				"name": "folder"
+																			}
+																		]
+																	}
+																}
+															],
+															"kind": "var"
 														}
 													]
 												},
-												"each": false
+												"guardedHandlers": [],
+												"handlers": [],
+												"finalizer": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "Identifier",
+																	"name": "close"
+																},
+																"arguments": [
+																	{
+																		"type": "Identifier",
+																		"name": "h"
+																	}
+																]
+															}
+														}
+													]
+												}
 											}
 										]
 									},
 									"rest": null,
 									"generator": false,
 									"expression": false
-								},
-								"kind": "init",
-								"method": false,
-								"shorthand": false
-							}
-						]
-					}
-				}
-			],
-			"kind": "var"
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "external/deep/dive"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from external/deep/dive.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "../out_of_matrix"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from ../out_of_matrix.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "jquery"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from jquery.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "crypto"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from crypto.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "math"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from math.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "shape"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from shape.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "cowboy"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from cowboy.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "http://json.org/modules/json2.js"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from http://json.org/modules/json2.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "http://developer.yahoo.com/modules/yui3.js"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from http://developer.yahoo.com/modules/yui3.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "DOM"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from DOM.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "io/File"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from io/File.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "compiler/Lexer"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from compiler/Lexer.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "shell"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "Literal",
-										"value": "[content from shell.js goes here]"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "external/world"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "answer"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "external/deep/dive"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "answer"
-												}
-											}
-										}
-									]
-								},
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "realWorldAnswer"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "../out_of_matrix"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "es6i_default"
-												}
-											}
-										}
-									]
 								},
 								{
 									"type": "ExpressionStatement",
@@ -1024,21 +1346,13 @@
 											},
 											"property": {
 												"type": "Identifier",
-												"name": "es6i_default"
+												"name": "scan"
 											}
 										},
 										"operator": "=",
 										"right": {
-											"type": "BinaryExpression",
-											"operator": "+",
-											"left": {
-												"type": "Identifier",
-												"name": "answer"
-											},
-											"right": {
-												"type": "Identifier",
-												"name": "realWorldAnswer"
-											}
+											"type": "Identifier",
+											"name": "scan"
 										}
 									}
 								},
@@ -1060,7 +1374,553 @@
 										"arguments": [
 											{
 												"type": "Literal",
-												"value": "external/innerModule"
+												"value": "quickExamples"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "$"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "jquery"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "es6i_default"
+																		}
+																	}
+																}
+															]
+														},
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "encrypt"
+																	}
+																},
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "decrypt"
+																	}
+																}
+															]
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "FunctionExpression",
+																	"params": [
+																		{
+																			"type": "Identifier",
+																			"name": "es6i_import"
+																		}
+																	],
+																	"body": {
+																		"type": "BlockStatement",
+																		"body": [
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"left": {
+																						"type": "Identifier",
+																						"name": "encrypt"
+																					},
+																					"operator": "=",
+																					"right": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_import"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "encrypt"
+																						}
+																					}
+																				}
+																			},
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"left": {
+																						"type": "Identifier",
+																						"name": "decrypt"
+																					},
+																					"operator": "=",
+																					"right": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_import"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "decrypt"
+																						}
+																					}
+																				}
+																			}
+																		]
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "CallExpression",
+																		"callee": {
+																			"type": "MemberExpression",
+																			"object": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "Identifier",
+																					"name": "es6i"
+																				},
+																				"property": {
+																					"type": "Identifier",
+																					"name": "modules"
+																				}
+																			},
+																			"computed": true,
+																			"property": {
+																				"type": "Literal",
+																				"value": "crypto"
+																			}
+																		},
+																		"arguments": []
+																	}
+																]
+															}
+														},
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "enc"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "crypto"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "encrypt"
+																		}
+																	}
+																}
+															]
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "pull"
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	{
+																		"type": "Literal",
+																		"value": "crypto"
+																	}
+																]
+															}
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "FunctionExpression",
+																	"params": [
+																		{
+																			"type": "Identifier",
+																			"name": "es6i_import"
+																		}
+																	],
+																	"body": {
+																		"type": "BlockStatement",
+																		"body": [
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"left": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_export"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "foo"
+																						}
+																					},
+																					"operator": "=",
+																					"right": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_import"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "foo"
+																						}
+																					}
+																				}
+																			},
+																			{
+																				"type": "ExpressionStatement",
+																				"expression": {
+																					"type": "AssignmentExpression",
+																					"left": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_export"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "barrrr"
+																						}
+																					},
+																					"operator": "=",
+																					"right": {
+																						"type": "MemberExpression",
+																						"object": {
+																							"type": "Identifier",
+																							"name": "es6i_import"
+																						},
+																						"property": {
+																							"type": "Identifier",
+																							"name": "bar"
+																						}
+																					}
+																				}
+																			}
+																		]
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "CallExpression",
+																		"callee": {
+																			"type": "MemberExpression",
+																			"object": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "Identifier",
+																					"name": "es6i"
+																				},
+																				"property": {
+																					"type": "Identifier",
+																					"name": "modules"
+																				}
+																			},
+																			"computed": true,
+																			"property": {
+																				"type": "Literal",
+																				"value": "crypto"
+																			}
+																		},
+																		"arguments": []
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "Math"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "math"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "alert"
+										},
+										"arguments": [
+											{
+												"type": "BinaryExpression",
+												"operator": "+",
+												"left": {
+													"type": "Literal",
+													"value": "2p = ",
+													"raw": "\"2p = \""
+												},
+												"right": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"computed": false,
+														"object": {
+															"type": "Identifier",
+															"name": "Math"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "sum"
+														}
+													},
+													"arguments": [
+														{
+															"type": "MemberExpression",
+															"computed": false,
+															"object": {
+																"type": "Identifier",
+																"name": "Math"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "pi"
+															}
+														},
+														{
+															"type": "MemberExpression",
+															"computed": false,
+															"object": {
+																"type": "Identifier",
+																"name": "Math"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "pi"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "drawShape"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "shape"
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "draw"
+												}
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "drawGun"
+											},
+											"init": {
+												"type": "MemberExpression",
+												"object": {
+													"type": "CallExpression",
+													"callee": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "MemberExpression",
+															"object": {
+																"type": "Identifier",
+																"name": "es6i"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "modules"
+															}
+														},
+														"computed": true,
+														"property": {
+															"type": "Literal",
+															"value": "cowboy"
+														}
+													},
+													"arguments": []
+												},
+												"property": {
+													"type": "Identifier",
+													"name": "draw"
+												}
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "widgets"
 											},
 											{
 												"type": "FunctionExpression",
@@ -1077,34 +1937,1226 @@
 											}
 										]
 									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "FunctionDeclaration",
-			"id": {
-				"type": "Identifier",
-				"name": "scan"
-			},
-			"params": [
-				{
-					"type": "Identifier",
-					"name": "folder"
-				}
-			],
-			"defaults": [],
-			"body": {
-				"type": "BlockStatement",
-				"body": [
-					{
-						"type": "TryStatement",
-						"block": {
-							"type": "BlockStatement",
-							"body": [
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "widgets/button"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": []
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "widgets/alert"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": []
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "widgets/textarea"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": []
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "messageBox"
+											}
+										},
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "confirmDialog"
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "FunctionExpression",
+											"params": [
+												{
+													"type": "Identifier",
+													"name": "es6i_import"
+												}
+											],
+											"body": {
+												"type": "BlockStatement",
+												"body": [
+													{
+														"type": "ExpressionStatement",
+														"expression": {
+															"type": "AssignmentExpression",
+															"left": {
+																"type": "Identifier",
+																"name": "messageBox"
+															},
+															"operator": "=",
+															"right": {
+																"type": "MemberExpression",
+																"object": {
+																	"type": "Identifier",
+																	"name": "es6i_import"
+																},
+																"property": {
+																	"type": "Identifier",
+																	"name": "messageBox"
+																}
+															}
+														}
+													},
+													{
+														"type": "ExpressionStatement",
+														"expression": {
+															"type": "AssignmentExpression",
+															"left": {
+																"type": "Identifier",
+																"name": "confirmDialog"
+															},
+															"operator": "=",
+															"right": {
+																"type": "MemberExpression",
+																"object": {
+																	"type": "Identifier",
+																	"name": "es6i_import"
+																},
+																"property": {
+																	"type": "Identifier",
+																	"name": "confirmDialog"
+																}
+															}
+														}
+													}
+												]
+											}
+										},
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "widgets/alert"
+													}
+												},
+												"arguments": []
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "JSON"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "http://json.org/modules/json2.js"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "alert"
+										},
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"computed": false,
+													"object": {
+														"type": "Identifier",
+														"name": "JSON"
+													},
+													"property": {
+														"type": "Identifier",
+														"name": "stringify"
+													}
+												},
+												"arguments": [
+													{
+														"type": "ObjectExpression",
+														"properties": [
+															{
+																"type": "Property",
+																"key": {
+																	"type": "Literal",
+																	"value": "hi",
+																	"raw": "'hi'"
+																},
+																"value": {
+																	"type": "Literal",
+																	"value": "world",
+																	"raw": "'world'"
+																},
+																"kind": "init",
+																"method": false,
+																"shorthand": false
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "YUI"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "http://developer.yahoo.com/modules/yui3.js"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "Identifier",
+											"name": "alert"
+										},
+										"arguments": [
+											{
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"computed": false,
+													"object": {
+														"type": "MemberExpression",
+														"computed": false,
+														"object": {
+															"type": "MemberExpression",
+															"computed": false,
+															"object": {
+																"type": "Identifier",
+																"name": "YUI"
+															},
+															"property": {
+																"type": "Identifier",
+																"name": "dom"
+															}
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "Color"
+														}
+													},
+													"property": {
+														"type": "Identifier",
+														"name": "toHex"
+													}
+												},
+												"arguments": [
+													{
+														"type": "Literal",
+														"value": "blue",
+														"raw": "\"blue\""
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "Even"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "FunctionDeclaration",
+															"id": {
+																"type": "Identifier",
+																"name": "even"
+															},
+															"params": [
+																{
+																	"type": "Identifier",
+																	"name": "n"
+																}
+															],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ReturnStatement",
+																		"argument": {
+																			"type": "LogicalExpression",
+																			"operator": "||",
+																			"left": {
+																				"type": "BinaryExpression",
+																				"operator": "==",
+																				"left": {
+																					"type": "Identifier",
+																					"name": "n"
+																				},
+																				"right": {
+																					"type": "Literal",
+																					"value": 0,
+																					"raw": "0"
+																				}
+																			},
+																			"right": {
+																				"type": "CallExpression",
+																				"callee": {
+																					"type": "Identifier",
+																					"name": "odd"
+																				},
+																				"arguments": [
+																					{
+																						"type": "BinaryExpression",
+																						"operator": "-",
+																						"left": {
+																							"type": "Identifier",
+																							"name": "n"
+																						},
+																						"right": {
+																							"type": "Literal",
+																							"value": 1,
+																							"raw": "1"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "AssignmentExpression",
+																"left": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "even"
+																	}
+																},
+																"operator": "=",
+																"right": {
+																	"type": "Identifier",
+																	"name": "es6i_default"
+																}
+															}
+														},
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "odd"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "Odd"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "es6i_default"
+																		}
+																	}
+																}
+															]
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "Odd"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "FunctionDeclaration",
+															"id": {
+																"type": "Identifier",
+																"name": "odd"
+															},
+															"params": [
+																{
+																	"type": "Identifier",
+																	"name": "n"
+																}
+															],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ReturnStatement",
+																		"argument": {
+																			"type": "LogicalExpression",
+																			"operator": "&&",
+																			"left": {
+																				"type": "BinaryExpression",
+																				"operator": "!=",
+																				"left": {
+																					"type": "Identifier",
+																					"name": "n"
+																				},
+																				"right": {
+																					"type": "Literal",
+																					"value": 0,
+																					"raw": "0"
+																				}
+																			},
+																			"right": {
+																				"type": "CallExpression",
+																				"callee": {
+																					"type": "Identifier",
+																					"name": "even"
+																				},
+																				"arguments": [
+																					{
+																						"type": "BinaryExpression",
+																						"operator": "-",
+																						"left": {
+																							"type": "Identifier",
+																							"name": "n"
+																						},
+																						"right": {
+																							"type": "Literal",
+																							"value": 1,
+																							"raw": "1"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "AssignmentExpression",
+																"left": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "odd"
+																	}
+																},
+																"operator": "=",
+																"right": {
+																	"type": "Identifier",
+																	"name": "es6i_default"
+																}
+															}
+														},
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "even"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "Even"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "es6i_default"
+																		}
+																	}
+																}
+															]
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "SafeDOMWrapper"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "VariableDeclaration",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "isWrapper"
+																	},
+																	"init": {
+																		"type": "AssignmentExpression",
+																		"left": {
+																			"type": "MemberExpression",
+																			"object": {
+																				"type": "Identifier",
+																				"name": "es6i_export"
+																			},
+																			"property": {
+																				"type": "Identifier",
+																				"name": "isWrapper"
+																			}
+																		},
+																		"operator": "=",
+																		"right": {
+																			"type": "Literal",
+																			"value": true,
+																			"raw": "true"
+																		}
+																	}
+																}
+															],
+															"kind": "var"
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "pull"
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	{
+																		"type": "Literal",
+																		"value": "SafeDOM"
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "DOMMunger"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "FunctionDeclaration",
+															"id": {
+																"type": "Identifier",
+																"name": "make"
+															},
+															"params": [
+																{
+																	"type": "Identifier",
+																	"name": "domAPI"
+																}
+															],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ReturnStatement",
+																		"argument": {
+																			"type": "ObjectExpression",
+																			"properties": [
+																				{
+																					"type": "Property",
+																					"key": {
+																						"type": "Identifier",
+																						"name": "munge"
+																					},
+																					"value": {
+																						"type": "FunctionExpression",
+																						"id": null,
+																						"params": [
+																							{
+																								"type": "Identifier",
+																								"name": "doc"
+																							}
+																						],
+																						"defaults": [],
+																						"body": {
+																							"type": "BlockStatement",
+																							"body": [
+																								{
+																									"type": "ExpressionStatement",
+																									"expression": {
+																										"type": "CallExpression",
+																										"callee": {
+																											"type": "MemberExpression",
+																											"computed": false,
+																											"object": {
+																												"type": "Identifier",
+																												"name": "domAPI"
+																											},
+																											"property": {
+																												"type": "Identifier",
+																												"name": "alert"
+																											}
+																										},
+																										"arguments": [
+																											{
+																												"type": "Literal",
+																												"value": "hi!",
+																												"raw": "'hi!'"
+																											}
+																										]
+																									}
+																								}
+																							]
+																						},
+																						"rest": null,
+																						"generator": false,
+																						"expression": false
+																					},
+																					"kind": "init",
+																					"method": false,
+																					"shorthand": false
+																				}
+																			]
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "AssignmentExpression",
+																"left": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "make"
+																	}
+																},
+																"operator": "=",
+																"right": {
+																	"type": "Identifier",
+																	"name": "make"
+																}
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "ExpressionStatement",
+									"expression": {
+										"type": "CallExpression",
+										"callee": {
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
+										},
+										"arguments": [
+											{
+												"type": "Literal",
+												"value": "SafeDOM"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "VariableDeclaration",
+															"kind": "var",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "alert"
+																	},
+																	"init": {
+																		"type": "MemberExpression",
+																		"object": {
+																			"type": "CallExpression",
+																			"callee": {
+																				"type": "MemberExpression",
+																				"object": {
+																					"type": "MemberExpression",
+																					"object": {
+																						"type": "Identifier",
+																						"name": "es6i"
+																					},
+																					"property": {
+																						"type": "Identifier",
+																						"name": "modules"
+																					}
+																				},
+																				"computed": true,
+																				"property": {
+																					"type": "Literal",
+																					"value": "DOM"
+																				}
+																			},
+																			"arguments": []
+																		},
+																		"property": {
+																			"type": "Identifier",
+																			"name": "alert"
+																		}
+																	}
+																}
+															]
+														},
+														{
+															"type": "VariableDeclaration",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "document"
+																	},
+																	"init": {
+																		"type": "AssignmentExpression",
+																		"left": {
+																			"type": "MemberExpression",
+																			"object": {
+																				"type": "Identifier",
+																				"name": "es6i_export"
+																			},
+																			"property": {
+																				"type": "Identifier",
+																				"name": "document"
+																			}
+																		},
+																		"operator": "=",
+																		"right": {
+																			"type": "ObjectExpression",
+																			"properties": [
+																				{
+																					"type": "Property",
+																					"key": {
+																						"type": "Identifier",
+																						"name": "write"
+																					},
+																					"value": {
+																						"type": "FunctionExpression",
+																						"id": null,
+																						"params": [
+																							{
+																								"type": "Identifier",
+																								"name": "txt"
+																							}
+																						],
+																						"defaults": [],
+																						"body": {
+																							"type": "BlockStatement",
+																							"body": [
+																								{
+																									"type": "ExpressionStatement",
+																									"expression": {
+																										"type": "CallExpression",
+																										"callee": {
+																											"type": "Identifier",
+																											"name": "alert"
+																										},
+																										"arguments": [
+																											{
+																												"type": "Literal",
+																												"value": "I'm sorry, Dave, I'm afraid I can't do that...",
+																												"raw": "'I\\'m sorry, Dave, I\\'m afraid I can\\'t do that...'"
+																											}
+																										]
+																									}
+																								}
+																							]
+																						},
+																						"rest": null,
+																						"generator": false,
+																						"expression": false
+																					},
+																					"kind": "init",
+																					"method": false,
+																					"shorthand": false
+																				}
+																			]
+																		}
+																	}
+																}
+															],
+															"kind": "var"
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "CallExpression",
+																"callee": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "pull"
+																	}
+																},
+																"arguments": [
+																	{
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	{
+																		"type": "Literal",
+																		"value": "SafeDOMWrapper"
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "DOMMunger"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "DOMMunger"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "SafeDOM"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "SafeDOM"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
 								{
 									"type": "VariableDeclaration",
 									"declarations": [
@@ -1112,152 +3164,184 @@
 											"type": "VariableDeclarator",
 											"id": {
 												"type": "Identifier",
-												"name": "h"
+												"name": "instance"
 											},
 											"init": {
 												"type": "CallExpression",
 												"callee": {
-													"type": "Identifier",
-													"name": "open"
+													"type": "MemberExpression",
+													"computed": false,
+													"object": {
+														"type": "Identifier",
+														"name": "DOMMunger"
+													},
+													"property": {
+														"type": "Identifier",
+														"name": "make"
+													}
 												},
 												"arguments": [
 													{
 														"type": "Identifier",
-														"name": "folder"
+														"name": "SafeDOM"
 													}
 												]
 											}
 										}
 									],
 									"kind": "var"
-								}
-							]
-						},
-						"guardedHandlers": [],
-						"handlers": [],
-						"finalizer": {
-							"type": "BlockStatement",
-							"body": [
+								},
 								{
 									"type": "ExpressionStatement",
 									"expression": {
 										"type": "CallExpression",
 										"callee": {
-											"type": "Identifier",
-											"name": "close"
+											"type": "MemberExpression",
+											"object": {
+												"type": "Identifier",
+												"name": "es6i"
+											},
+											"property": {
+												"type": "Identifier",
+												"name": "define"
+											}
 										},
 										"arguments": [
 											{
-												"type": "Identifier",
-												"name": "h"
+												"type": "Literal",
+												"value": "counter"
+											},
+											{
+												"type": "FunctionExpression",
+												"params": [
+													{
+														"type": "Identifier",
+														"name": "es6i_export"
+													}
+												],
+												"body": {
+													"type": "BlockStatement",
+													"body": [
+														{
+															"type": "FunctionDeclaration",
+															"id": {
+																"type": "Identifier",
+																"name": "current"
+															},
+															"params": [],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ReturnStatement",
+																		"argument": {
+																			"type": "Identifier",
+																			"name": "n"
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "AssignmentExpression",
+																"left": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "current"
+																	}
+																},
+																"operator": "=",
+																"right": {
+																	"type": "Identifier",
+																	"name": "current"
+																}
+															}
+														},
+														{
+															"type": "FunctionDeclaration",
+															"id": {
+																"type": "Identifier",
+																"name": "increment"
+															},
+															"params": [],
+															"defaults": [],
+															"body": {
+																"type": "BlockStatement",
+																"body": [
+																	{
+																		"type": "ReturnStatement",
+																		"argument": {
+																			"type": "UpdateExpression",
+																			"operator": "++",
+																			"argument": {
+																				"type": "Identifier",
+																				"name": "n"
+																			},
+																			"prefix": false
+																		}
+																	}
+																]
+															},
+															"rest": null,
+															"generator": false,
+															"expression": false
+														},
+														{
+															"type": "ExpressionStatement",
+															"expression": {
+																"type": "AssignmentExpression",
+																"left": {
+																	"type": "MemberExpression",
+																	"object": {
+																		"type": "Identifier",
+																		"name": "es6i_export"
+																	},
+																	"property": {
+																		"type": "Identifier",
+																		"name": "increment"
+																	}
+																},
+																"operator": "=",
+																"right": {
+																	"type": "Identifier",
+																	"name": "increment"
+																}
+															}
+														},
+														{
+															"type": "VariableDeclaration",
+															"declarations": [
+																{
+																	"type": "VariableDeclarator",
+																	"id": {
+																		"type": "Identifier",
+																		"name": "n"
+																	},
+																	"init": {
+																		"type": "Literal",
+																		"value": 0,
+																		"raw": "0"
+																	}
+																}
+															],
+															"kind": "var"
+														}
+													]
+												}
 											}
 										]
 									}
-								}
-							]
-						}
-					}
-				]
-			},
-			"rest": null,
-			"generator": false,
-			"expression": false
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "AssignmentExpression",
-				"left": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i_export"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "scan"
-					}
-				},
-				"operator": "=",
-				"right": {
-					"type": "Identifier",
-					"name": "scan"
-				}
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "quickExamples"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "$"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "jquery"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "es6i_default"
-												}
-											}
-										}
-									]
 								},
 								{
 									"type": "VariableDeclaration",
@@ -1267,14 +3351,14 @@
 											"type": "VariableDeclarator",
 											"id": {
 												"type": "Identifier",
-												"name": "encrypt"
+												"name": "open"
 											}
 										},
 										{
 											"type": "VariableDeclarator",
 											"id": {
 												"type": "Identifier",
-												"name": "decrypt"
+												"name": "close"
 											}
 										}
 									]
@@ -1300,7 +3384,7 @@
 															"type": "AssignmentExpression",
 															"left": {
 																"type": "Identifier",
-																"name": "encrypt"
+																"name": "open"
 															},
 															"operator": "=",
 															"right": {
@@ -1311,7 +3395,7 @@
 																},
 																"property": {
 																	"type": "Identifier",
-																	"name": "encrypt"
+																	"name": "open"
 																}
 															}
 														}
@@ -1322,7 +3406,7 @@
 															"type": "AssignmentExpression",
 															"left": {
 																"type": "Identifier",
-																"name": "decrypt"
+																"name": "close"
 															},
 															"operator": "=",
 															"right": {
@@ -1333,7 +3417,7 @@
 																},
 																"property": {
 																	"type": "Identifier",
-																	"name": "decrypt"
+																	"name": "close"
 																}
 															}
 														}
@@ -1360,7 +3444,7 @@
 													"computed": true,
 													"property": {
 														"type": "Literal",
-														"value": "crypto"
+														"value": "io/File"
 													}
 												},
 												"arguments": []
@@ -1376,146 +3460,9 @@
 											"type": "VariableDeclarator",
 											"id": {
 												"type": "Identifier",
-												"name": "enc"
+												"name": "lexer"
 											},
 											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "crypto"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "encrypt"
-												}
-											}
-										}
-									]
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
-										"callee": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "pull"
-											}
-										},
-										"arguments": [
-											{
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											{
-												"type": "Literal",
-												"value": "crypto"
-											}
-										]
-									}
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
-										"callee": {
-											"type": "FunctionExpression",
-											"params": [
-												{
-													"type": "Identifier",
-													"name": "es6i_import"
-												}
-											],
-											"body": {
-												"type": "BlockStatement",
-												"body": [
-													{
-														"type": "ExpressionStatement",
-														"expression": {
-															"type": "AssignmentExpression",
-															"left": {
-																"type": "MemberExpression",
-																"object": {
-																	"type": "Identifier",
-																	"name": "es6i_export"
-																},
-																"property": {
-																	"type": "Identifier",
-																	"name": "foo"
-																}
-															},
-															"operator": "=",
-															"right": {
-																"type": "MemberExpression",
-																"object": {
-																	"type": "Identifier",
-																	"name": "es6i_import"
-																},
-																"property": {
-																	"type": "Identifier",
-																	"name": "foo"
-																}
-															}
-														}
-													},
-													{
-														"type": "ExpressionStatement",
-														"expression": {
-															"type": "AssignmentExpression",
-															"left": {
-																"type": "MemberExpression",
-																"object": {
-																	"type": "Identifier",
-																	"name": "es6i_export"
-																},
-																"property": {
-																	"type": "Identifier",
-																	"name": "barrrr"
-																}
-															},
-															"operator": "=",
-															"right": {
-																"type": "MemberExpression",
-																"object": {
-																	"type": "Identifier",
-																	"name": "es6i_import"
-																},
-																"property": {
-																	"type": "Identifier",
-																	"name": "bar"
-																}
-															}
-														}
-													}
-												]
-											}
-										},
-										"arguments": [
-											{
 												"type": "CallExpression",
 												"callee": {
 													"type": "MemberExpression",
@@ -1533,745 +3480,13 @@
 													"computed": true,
 													"property": {
 														"type": "Literal",
-														"value": "crypto"
+														"value": "compiler/Lexer"
 													}
 												},
 												"arguments": []
 											}
-										]
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "Math"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "math"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "Identifier",
-					"name": "alert"
-				},
-				"arguments": [
-					{
-						"type": "BinaryExpression",
-						"operator": "+",
-						"left": {
-							"type": "Literal",
-							"value": "2p = ",
-							"raw": "\"2p = \""
-						},
-						"right": {
-							"type": "CallExpression",
-							"callee": {
-								"type": "MemberExpression",
-								"computed": false,
-								"object": {
-									"type": "Identifier",
-									"name": "Math"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "sum"
-								}
-							},
-							"arguments": [
-								{
-									"type": "MemberExpression",
-									"computed": false,
-									"object": {
-										"type": "Identifier",
-										"name": "Math"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "pi"
-									}
-								},
-								{
-									"type": "MemberExpression",
-									"computed": false,
-									"object": {
-										"type": "Identifier",
-										"name": "Math"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "pi"
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "drawShape"
-					},
-					"init": {
-						"type": "MemberExpression",
-						"object": {
-							"type": "CallExpression",
-							"callee": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "MemberExpression",
-									"object": {
-										"type": "Identifier",
-										"name": "es6i"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "modules"
-									}
-								},
-								"computed": true,
-								"property": {
-									"type": "Literal",
-									"value": "shape"
-								}
-							},
-							"arguments": []
-						},
-						"property": {
-							"type": "Identifier",
-							"name": "draw"
-						}
-					}
-				}
-			]
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "drawGun"
-					},
-					"init": {
-						"type": "MemberExpression",
-						"object": {
-							"type": "CallExpression",
-							"callee": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "MemberExpression",
-									"object": {
-										"type": "Identifier",
-										"name": "es6i"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "modules"
-									}
-								},
-								"computed": true,
-								"property": {
-									"type": "Literal",
-									"value": "cowboy"
-								}
-							},
-							"arguments": []
-						},
-						"property": {
-							"type": "Identifier",
-							"name": "draw"
-						}
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "widgets"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": []
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "widgets/button"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": []
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "widgets/alert"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": []
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "widgets/textarea"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": []
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "messageBox"
-					}
-				},
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "confirmDialog"
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "FunctionExpression",
-					"params": [
-						{
-							"type": "Identifier",
-							"name": "es6i_import"
-						}
-					],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "Identifier",
-										"name": "messageBox"
-									},
-									"operator": "=",
-									"right": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i_import"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "messageBox"
 										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "Identifier",
-										"name": "confirmDialog"
-									},
-									"operator": "=",
-									"right": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i_import"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "confirmDialog"
-										}
-									}
-								}
-							}
-						]
-					}
-				},
-				"arguments": [
-					{
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "widgets/alert"
-							}
-						},
-						"arguments": []
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "JSON"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "http://json.org/modules/json2.js"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "Identifier",
-					"name": "alert"
-				},
-				"arguments": [
-					{
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"computed": false,
-							"object": {
-								"type": "Identifier",
-								"name": "JSON"
-							},
-							"property": {
-								"type": "Identifier",
-								"name": "stringify"
-							}
-						},
-						"arguments": [
-							{
-								"type": "ObjectExpression",
-								"properties": [
-									{
-										"type": "Property",
-										"key": {
-											"type": "Literal",
-											"value": "hi",
-											"raw": "'hi'"
-										},
-										"value": {
-											"type": "Literal",
-											"value": "world",
-											"raw": "'world'"
-										},
-										"kind": "init",
-										"method": false,
-										"shorthand": false
-									}
-								]
-							}
-						]
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "YUI"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "http://developer.yahoo.com/modules/yui3.js"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "Identifier",
-					"name": "alert"
-				},
-				"arguments": [
-					{
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"computed": false,
-							"object": {
-								"type": "MemberExpression",
-								"computed": false,
-								"object": {
-									"type": "MemberExpression",
-									"computed": false,
-									"object": {
-										"type": "Identifier",
-										"name": "YUI"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "dom"
-									}
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "Color"
-								}
-							},
-							"property": {
-								"type": "Identifier",
-								"name": "toHex"
-							}
-						},
-						"arguments": [
-							{
-								"type": "Literal",
-								"value": "blue",
-								"raw": "\"blue\""
-							}
-						]
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "Even"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "even"
-									},
-									"params": [
-										{
-											"type": "Identifier",
-											"name": "n"
-										}
-									],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "LogicalExpression",
-													"operator": "||",
-													"left": {
-														"type": "BinaryExpression",
-														"operator": "==",
-														"left": {
-															"type": "Identifier",
-															"name": "n"
-														},
-														"right": {
-															"type": "Literal",
-															"value": 0,
-															"raw": "0"
-														}
-													},
-													"right": {
-														"type": "CallExpression",
-														"callee": {
-															"type": "Identifier",
-															"name": "odd"
-														},
-														"arguments": [
-															{
-																"type": "BinaryExpression",
-																"operator": "-",
-																"left": {
-																	"type": "Identifier",
-																	"name": "n"
-																},
-																"right": {
-																	"type": "Literal",
-																	"value": 1,
-																	"raw": "1"
-																}
-															}
-														]
-													}
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "even"
-											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "es6i_default"
-										}
-									}
+									]
 								},
 								{
 									"type": "VariableDeclaration",
@@ -2281,7 +3496,43 @@
 											"type": "VariableDeclarator",
 											"id": {
 												"type": "Identifier",
-												"name": "odd"
+												"name": "shell"
+											},
+											"init": {
+												"type": "CallExpression",
+												"callee": {
+													"type": "MemberExpression",
+													"object": {
+														"type": "MemberExpression",
+														"object": {
+															"type": "Identifier",
+															"name": "es6i"
+														},
+														"property": {
+															"type": "Identifier",
+															"name": "modules"
+														}
+													},
+													"computed": true,
+													"property": {
+														"type": "Literal",
+														"value": "shell"
+													}
+												},
+												"arguments": []
+											}
+										}
+									]
+								},
+								{
+									"type": "VariableDeclaration",
+									"kind": "var",
+									"declarations": [
+										{
+											"type": "VariableDeclarator",
+											"id": {
+												"type": "Identifier",
+												"name": "answer"
 											},
 											"init": {
 												"type": "MemberExpression",
@@ -2303,7 +3554,7 @@
 														"computed": true,
 														"property": {
 															"type": "Literal",
-															"value": "Odd"
+															"value": "external/world"
 														}
 													},
 													"arguments": []
@@ -2321,1080 +3572,6 @@
 					}
 				]
 			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "Odd"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "odd"
-									},
-									"params": [
-										{
-											"type": "Identifier",
-											"name": "n"
-										}
-									],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "LogicalExpression",
-													"operator": "&&",
-													"left": {
-														"type": "BinaryExpression",
-														"operator": "!=",
-														"left": {
-															"type": "Identifier",
-															"name": "n"
-														},
-														"right": {
-															"type": "Literal",
-															"value": 0,
-															"raw": "0"
-														}
-													},
-													"right": {
-														"type": "CallExpression",
-														"callee": {
-															"type": "Identifier",
-															"name": "even"
-														},
-														"arguments": [
-															{
-																"type": "BinaryExpression",
-																"operator": "-",
-																"left": {
-																	"type": "Identifier",
-																	"name": "n"
-																},
-																"right": {
-																	"type": "Literal",
-																	"value": 1,
-																	"raw": "1"
-																}
-															}
-														]
-													}
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "odd"
-											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "es6i_default"
-										}
-									}
-								},
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "even"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "Even"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "es6i_default"
-												}
-											}
-										}
-									]
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "SafeDOMWrapper"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "VariableDeclaration",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "isWrapper"
-											},
-											"init": {
-												"type": "AssignmentExpression",
-												"left": {
-													"type": "MemberExpression",
-													"object": {
-														"type": "Identifier",
-														"name": "es6i_export"
-													},
-													"property": {
-														"type": "Identifier",
-														"name": "isWrapper"
-													}
-												},
-												"operator": "=",
-												"right": {
-													"type": "Literal",
-													"value": true,
-													"raw": "true"
-												}
-											}
-										}
-									],
-									"kind": "var"
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
-										"callee": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "pull"
-											}
-										},
-										"arguments": [
-											{
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											{
-												"type": "Literal",
-												"value": "SafeDOM"
-											}
-										]
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "DOMMunger"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "make"
-									},
-									"params": [
-										{
-											"type": "Identifier",
-											"name": "domAPI"
-										}
-									],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "ObjectExpression",
-													"properties": [
-														{
-															"type": "Property",
-															"key": {
-																"type": "Identifier",
-																"name": "munge"
-															},
-															"value": {
-																"type": "FunctionExpression",
-																"id": null,
-																"params": [
-																	{
-																		"type": "Identifier",
-																		"name": "doc"
-																	}
-																],
-																"defaults": [],
-																"body": {
-																	"type": "BlockStatement",
-																	"body": [
-																		{
-																			"type": "ExpressionStatement",
-																			"expression": {
-																				"type": "CallExpression",
-																				"callee": {
-																					"type": "MemberExpression",
-																					"computed": false,
-																					"object": {
-																						"type": "Identifier",
-																						"name": "domAPI"
-																					},
-																					"property": {
-																						"type": "Identifier",
-																						"name": "alert"
-																					}
-																				},
-																				"arguments": [
-																					{
-																						"type": "Literal",
-																						"value": "hi!",
-																						"raw": "'hi!'"
-																					}
-																				]
-																			}
-																		}
-																	]
-																},
-																"rest": null,
-																"generator": false,
-																"expression": false
-															},
-															"kind": "init",
-															"method": false,
-															"shorthand": false
-														}
-													]
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "make"
-											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "make"
-										}
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "SafeDOM"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "VariableDeclaration",
-									"kind": "var",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "alert"
-											},
-											"init": {
-												"type": "MemberExpression",
-												"object": {
-													"type": "CallExpression",
-													"callee": {
-														"type": "MemberExpression",
-														"object": {
-															"type": "MemberExpression",
-															"object": {
-																"type": "Identifier",
-																"name": "es6i"
-															},
-															"property": {
-																"type": "Identifier",
-																"name": "modules"
-															}
-														},
-														"computed": true,
-														"property": {
-															"type": "Literal",
-															"value": "DOM"
-														}
-													},
-													"arguments": []
-												},
-												"property": {
-													"type": "Identifier",
-													"name": "alert"
-												}
-											}
-										}
-									]
-								},
-								{
-									"type": "VariableDeclaration",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "document"
-											},
-											"init": {
-												"type": "AssignmentExpression",
-												"left": {
-													"type": "MemberExpression",
-													"object": {
-														"type": "Identifier",
-														"name": "es6i_export"
-													},
-													"property": {
-														"type": "Identifier",
-														"name": "document"
-													}
-												},
-												"operator": "=",
-												"right": {
-													"type": "ObjectExpression",
-													"properties": [
-														{
-															"type": "Property",
-															"key": {
-																"type": "Identifier",
-																"name": "write"
-															},
-															"value": {
-																"type": "FunctionExpression",
-																"id": null,
-																"params": [
-																	{
-																		"type": "Identifier",
-																		"name": "txt"
-																	}
-																],
-																"defaults": [],
-																"body": {
-																	"type": "BlockStatement",
-																	"body": [
-																		{
-																			"type": "ExpressionStatement",
-																			"expression": {
-																				"type": "CallExpression",
-																				"callee": {
-																					"type": "Identifier",
-																					"name": "alert"
-																				},
-																				"arguments": [
-																					{
-																						"type": "Literal",
-																						"value": "I'm sorry, Dave, I'm afraid I can't do that...",
-																						"raw": "'I\\'m sorry, Dave, I\\'m afraid I can\\'t do that...'"
-																					}
-																				]
-																			}
-																		}
-																	]
-																},
-																"rest": null,
-																"generator": false,
-																"expression": false
-															},
-															"kind": "init",
-															"method": false,
-															"shorthand": false
-														}
-													]
-												}
-											}
-										}
-									],
-									"kind": "var"
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "CallExpression",
-										"callee": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "pull"
-											}
-										},
-										"arguments": [
-											{
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											{
-												"type": "Literal",
-												"value": "SafeDOMWrapper"
-											}
-										]
-									}
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "DOMMunger"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "DOMMunger"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "SafeDOM"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "SafeDOM"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "VariableDeclaration",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "instance"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"computed": false,
-							"object": {
-								"type": "Identifier",
-								"name": "DOMMunger"
-							},
-							"property": {
-								"type": "Identifier",
-								"name": "make"
-							}
-						},
-						"arguments": [
-							{
-								"type": "Identifier",
-								"name": "SafeDOM"
-							}
-						]
-					}
-				}
-			],
-			"kind": "var"
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "MemberExpression",
-					"object": {
-						"type": "Identifier",
-						"name": "es6i"
-					},
-					"property": {
-						"type": "Identifier",
-						"name": "define"
-					}
-				},
-				"arguments": [
-					{
-						"type": "Literal",
-						"value": "counter"
-					},
-					{
-						"type": "FunctionExpression",
-						"params": [
-							{
-								"type": "Identifier",
-								"name": "es6i_export"
-							}
-						],
-						"body": {
-							"type": "BlockStatement",
-							"body": [
-								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "current"
-									},
-									"params": [],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "Identifier",
-													"name": "n"
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "current"
-											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "current"
-										}
-									}
-								},
-								{
-									"type": "FunctionDeclaration",
-									"id": {
-										"type": "Identifier",
-										"name": "increment"
-									},
-									"params": [],
-									"defaults": [],
-									"body": {
-										"type": "BlockStatement",
-										"body": [
-											{
-												"type": "ReturnStatement",
-												"argument": {
-													"type": "UpdateExpression",
-													"operator": "++",
-													"argument": {
-														"type": "Identifier",
-														"name": "n"
-													},
-													"prefix": false
-												}
-											}
-										]
-									},
-									"rest": null,
-									"generator": false,
-									"expression": false
-								},
-								{
-									"type": "ExpressionStatement",
-									"expression": {
-										"type": "AssignmentExpression",
-										"left": {
-											"type": "MemberExpression",
-											"object": {
-												"type": "Identifier",
-												"name": "es6i_export"
-											},
-											"property": {
-												"type": "Identifier",
-												"name": "increment"
-											}
-										},
-										"operator": "=",
-										"right": {
-											"type": "Identifier",
-											"name": "increment"
-										}
-									}
-								},
-								{
-									"type": "VariableDeclaration",
-									"declarations": [
-										{
-											"type": "VariableDeclarator",
-											"id": {
-												"type": "Identifier",
-												"name": "n"
-											},
-											"init": {
-												"type": "Literal",
-												"value": 0,
-												"raw": "0"
-											}
-										}
-									],
-									"kind": "var"
-								}
-							]
-						}
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "open"
-					}
-				},
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "close"
-					}
-				}
-			]
-		},
-		{
-			"type": "ExpressionStatement",
-			"expression": {
-				"type": "CallExpression",
-				"callee": {
-					"type": "FunctionExpression",
-					"params": [
-						{
-							"type": "Identifier",
-							"name": "es6i_import"
-						}
-					],
-					"body": {
-						"type": "BlockStatement",
-						"body": [
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "Identifier",
-										"name": "open"
-									},
-									"operator": "=",
-									"right": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i_import"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "open"
-										}
-									}
-								}
-							},
-							{
-								"type": "ExpressionStatement",
-								"expression": {
-									"type": "AssignmentExpression",
-									"left": {
-										"type": "Identifier",
-										"name": "close"
-									},
-									"operator": "=",
-									"right": {
-										"type": "MemberExpression",
-										"object": {
-											"type": "Identifier",
-											"name": "es6i_import"
-										},
-										"property": {
-											"type": "Identifier",
-											"name": "close"
-										}
-									}
-								}
-							}
-						]
-					}
-				},
-				"arguments": [
-					{
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "io/File"
-							}
-						},
-						"arguments": []
-					}
-				]
-			}
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "lexer"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "compiler/Lexer"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "shell"
-					},
-					"init": {
-						"type": "CallExpression",
-						"callee": {
-							"type": "MemberExpression",
-							"object": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "Identifier",
-									"name": "es6i"
-								},
-								"property": {
-									"type": "Identifier",
-									"name": "modules"
-								}
-							},
-							"computed": true,
-							"property": {
-								"type": "Literal",
-								"value": "shell"
-							}
-						},
-						"arguments": []
-					}
-				}
-			]
-		},
-		{
-			"type": "VariableDeclaration",
-			"kind": "var",
-			"declarations": [
-				{
-					"type": "VariableDeclarator",
-					"id": {
-						"type": "Identifier",
-						"name": "answer"
-					},
-					"init": {
-						"type": "MemberExpression",
-						"object": {
-							"type": "CallExpression",
-							"callee": {
-								"type": "MemberExpression",
-								"object": {
-									"type": "MemberExpression",
-									"object": {
-										"type": "Identifier",
-										"name": "es6i"
-									},
-									"property": {
-										"type": "Identifier",
-										"name": "modules"
-									}
-								},
-								"computed": true,
-								"property": {
-									"type": "Literal",
-									"value": "external/world"
-								}
-							},
-							"arguments": []
-						},
-						"property": {
-							"type": "Identifier",
-							"name": "es6i_default"
-						}
-					}
-				}
-			]
 		}
 	]
 }

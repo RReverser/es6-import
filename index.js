@@ -1,6 +1,7 @@
 var esprima = require('esprima'),
 	escodegen = require('escodegen'),
 	fs = require('fs'),
+	refs = require('./src/refs'),
 	tracker = require('./src/tracker'),
 	traverse = require('./src/traverse'),
 	testPath = __dirname + '/test/';
@@ -8,8 +9,6 @@ var esprima = require('esprima'),
 function getAST(path) {
 	return esprima.parse(fs.readFileSync(path));
 }
-
-var prependAST = getAST(__dirname + '/src/prepend.js');
 
 var ast = getAST(testPath + 'source.in.js');
 
@@ -46,7 +45,24 @@ while ((unresolvedModules = tracker.list().filter(function (module) { return !mo
 		.concat(ast.body);
 }
 
-ast.body = prependAST.body.concat(ast.body);
+ast.body = [{
+	type: 'ExpressionStatement',
+	expression: {
+		type: 'CallExpression',
+		callee: getAST(__dirname + '/src/umd.js').body[0].expression,
+		arguments: [
+			{type: 'ThisExpression'},
+			{
+				type: 'FunctionExpression',
+				params: [refs.es6i_export],
+				body: {
+					type: 'BlockStatement',
+					body: getAST(__dirname + '/src/prepend.js').body.concat(ast.body)
+				}
+			}
+		]
+	}
+}];
 
 fs.writeFile(testPath + 'source.out.json', JSON.stringify(ast, null, '\t'), function () {
 	fs.writeFile(testPath + 'source.out.js', escodegen.generate(ast));
